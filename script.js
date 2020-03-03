@@ -5,5 +5,8 @@ window.onload = () => {
         })
         .then( (data) => {
             console.log(data);
+        })
+        .catch( (error) => {
+            console.log('Holy Shit:' + error);
         });
 };
