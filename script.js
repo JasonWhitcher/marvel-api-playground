@@ -1,5 +1,5 @@
 window.onload = () => {
-    fetch('http://gateway.marvel.com/v1/public/characters?apikey=b703ebcf36f7b7bdb42b10f2dd8f1b39')
+    fetch('http://gateway.marvel.com/v1/public/characters/1?apikey=b703ebcf36f7b7bdb42b10f2dd8f1b39')
         .then( (response) => {
             return response.json();
         })
@@ -7,6 +7,6 @@ window.onload = () => {
             console.log(data);
         })
         .catch( (error) => {
-            console.log('Holy Shit:' + error);
+            console.log('Oh No:' + error);
         });
 };
