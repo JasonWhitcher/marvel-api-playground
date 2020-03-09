@@ -24,12 +24,13 @@ window.onload = () => {
                     console.log(name.name);
                 }
                 console.log(optionsList);
-                datalistElement.innerHTML = optionsList;
-                return optionsList;
+                setTimeout( () => { datalistElement.innerHTML = optionsList; }, 100);
+                //datalistElement.innerHTML = optionsList;
+                /*return optionsList;
             })
             .then( (optionsList) => {
                 console.log('TEST');
-                //datalistElement.innerHTML = optionsList;
+                //datalistElement.innerHTML = optionsList;*/
             })
             .catch( (error) => {
                 console.log('Oh No:' + error);
