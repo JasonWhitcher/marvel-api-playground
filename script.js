@@ -21,7 +21,7 @@ window.onload = () => {
                 datalistElement.innerHTML = '';
                 for (let name of names) {
                     optionsList += '<option value="' + name.name + '">';
-                    //console.log(name.name);
+                    console.log(name.name);
                 }
                 datalistElement.innerHTML = optionsList;
                 //console.log(data.data.results[0].name);
