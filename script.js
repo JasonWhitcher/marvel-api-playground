@@ -23,8 +23,8 @@ window.onload = () => {
                     optionsList += '<option value="' + name.name + '">';
                     console.log(name.name);
                 }
+                console.log(optionsList);
                 datalistElement.innerHTML = optionsList;
-                //console.log(data.data.results[0].name);
             })
             .catch( (error) => {
                 console.log('Oh No:' + error);
