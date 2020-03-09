@@ -27,6 +27,7 @@ window.onload = () => {
                 return optionsList;
             })
             .then( (optionsList) => {
+                console.log('TEST');
                 datalistElement.innerHTML = optionsList;
             })
             .catch( (error) => {
