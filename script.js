@@ -16,8 +16,13 @@ window.onload = () => {
                 return response.json();
             })
             .then( (data) => {
-                //datalistElement.innerHTML = '';
-                console.log(data.data.results[0].name);
+                let names = data.data.results;
+                datalistElement.innerHTML = '';
+                for (let name of names) {
+                    console.log(name.name);
+                }
+                //datalistElement.innerHTML = '<option value="' +  + '">';
+                //console.log(data.data.results[0].name);
             })
             .catch( (error) => {
                 console.log('Oh No:' + error);
