@@ -6,7 +6,8 @@ let paramLimitNumber = 'limit=' + 5;
 
 window.onload = () => {
     let inputName = document.getElementById('chr-name');
-    
+    let datalistElement = document.getElementById('char-list');
+
     inputName.addEventListener('input', (event) => {
         let chrName = inputName.value;
         console.log(chrName);
@@ -15,7 +16,8 @@ window.onload = () => {
                 return response.json();
             })
             .then( (data) => {
-                console.log(data);
+                //datalistElement.innerHTML = '';
+                console.log(data.data.results[0].name);
             })
             .catch( (error) => {
                 console.log('Oh No:' + error);
