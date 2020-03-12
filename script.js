@@ -10,8 +10,8 @@ window.onload = () => {
 
     inputName.addEventListener('input', (event) => {
         let chrName = inputName.value;
-        console.log('charName: ' + chrName);
-        if (chrName.length < 0) {
+        console.log('charName: ' + chrName.length);
+        if (chrName.length > 0) {
             fetch(url+ '?' + paramNameStartsWith + chrName + '&' + paramLimitNumber + '&' + apiKey)
                 .then( (response) => {
                     return response.json();
