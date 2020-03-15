@@ -36,6 +36,7 @@ window.onload = () => {
     });
 
     inputSubmit.addEventListener('click', (event) => {
+        event.preventDefault;
         let charName = document.getElementById('chr-name');
         fetch(url + '?' + paramName + chrName + '&' + apiKey)
             .then( (response) =>{
