@@ -36,8 +36,8 @@ window.onload = () => {
     });
 
     inputSubmit.addEventListener('click', (event) => {
-        event.preventDefault;
-        let charName = document.getElementById('chr-name');
+        console.log('BUTTON CLICKED');
+        /*let charName = document.getElementById('chr-name');
         fetch(url + '?' + paramName + chrName + '&' + apiKey)
             .then( (response) =>{
                 return response.json();
@@ -48,7 +48,7 @@ window.onload = () => {
             })
             .catch( (error) => {
                 console.log('Fetch by Id error:' + error);
-            });
+            });*/
     });
 
 
