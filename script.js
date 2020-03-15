@@ -52,7 +52,7 @@ window.onload = () => {
 
 
     function updateDisplay(characterObject) {
-        let characterObject = characterObject;
+        //let characterObject = characterObject;
         console.log('Character ID: ' + getCharacterID(characterObject));
     }
 
