@@ -36,16 +36,17 @@ window.onload = () => {
     });
 
     inputSubmit.addEventListener('click', (event) => {
-        console.log('BUTTON CLICKED');
+console.log('BUTTON CLICKED');
         let charName = inputName;
+console.log(url + '?' + paramName + charName + '&' + apiKey);
         fetch(url + '?' + paramName + charName + '&' + apiKey)
             .then( (response) =>{
                 return response.json();
             })
             .then( (data) => {
-                console.log(data);
-                let charID = data.data.id;
-                console.log('id: ' + charID);
+console.log(data);
+                let charID = data.data.results.id;
+console.log('id: ' + charID);
             })
             .catch( (error) => {
                 console.log('Fetch by Id error:' + error);
