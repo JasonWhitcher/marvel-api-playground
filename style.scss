@@ -6,4 +6,8 @@ body {
 #character-image-container {
     width: 200px;
     height: 200px;
+    #char-image {
+        width: inherit;
+        height: inherit;
+    }
 }

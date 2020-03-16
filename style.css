@@ -8,4 +8,9 @@ body {
   width: 200px;
   height: 200px;
 }
+
+#character-image-container #char-image {
+  width: inherit;
+  height: inherit;
+}
 /*# sourceMappingURL=style.css.map */
