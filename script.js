@@ -5,7 +5,7 @@ window.onload = () => {
     let paramName = 'name=';
     let paramLimitNumber = 'limit=' + 5;
     
-    let inputName = document.getElementById('chr-name');
+    let inputName = document.getElementById('char-name');
     let datalistElement = document.getElementById('char-list');
     let inputSubmit = document.getElementById('char-submit');
 
