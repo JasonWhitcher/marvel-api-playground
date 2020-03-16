@@ -11,22 +11,18 @@ window.onload = () => {
 
     inputName.addEventListener('input', (event) => {
         let chrName = inputName.value;
-        console.log('charName: ' + chrName.length);
-        if (chrName.length > 0) {
+        if (chrName.length > 0) { // Make sure the input field is not empty.
             fetch(url + '?' + paramNameStartsWith + chrName + '&' + paramLimitNumber + '&' + apiKey)
                 .then( (response) => {
                     return response.json();
                 })
                 .then( (data) => {
                     let names = data.data.results;
-//console.log('names:' + names);
                     let optionsList = '';
                     datalistElement.innerHTML = '';
                     for (let name of names) {
                         optionsList += '<option value="' + name.name + '">';
-                        console.log(name.name);
                     }
-//console.log(optionsList);
                     datalistElement.innerHTML = optionsList;
                 })
                 .catch( (error) => {
@@ -36,17 +32,15 @@ window.onload = () => {
     });
 
     inputSubmit.addEventListener('click', (event) => {
-console.log('BUTTON CLICKED');
         let charName = inputName.value;
-console.log(url + '?' + paramName + charName + '&' + apiKey);
         fetch(url + '?' + paramName + charName + '&' + apiKey)
             .then( (response) =>{
                 return response.json();
             })
             .then( (data) => {
 console.log(data);
-                let charID = data.data.results[0].id;
-console.log('id: ' + charID);
+                let charObject = data.data.results[0];
+console.log('id: ' + charObject.id);
             })
             .catch( (error) => {
                 console.log('Fetch by Id error:' + error);
