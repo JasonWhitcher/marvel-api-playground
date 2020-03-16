@@ -38,13 +38,13 @@ window.onload = () => {
     inputSubmit.addEventListener('click', (event) => {
         console.log('BUTTON CLICKED');
         let charName = inputName;
-        fetch(url + '?' + paramName + chrName + '&' + apiKey)
+        fetch(url + '?' + paramName + charName + '&' + apiKey)
             .then( (response) =>{
                 return response.json();
             })
             .then( (data) => {
-                let chrID = data.data.id;
-                console.log('id: ' + chrID);
+                let charID = data.data.id;
+                console.log('id: ' + charID);
             })
             .catch( (error) => {
                 console.log('Fetch by Id error:' + error);
