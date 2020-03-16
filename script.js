@@ -37,7 +37,7 @@ window.onload = () => {
 
     inputSubmit.addEventListener('click', (event) => {
         console.log('BUTTON CLICKED');
-        let charName = document.getElementById('chr-name');
+        let charName = inputName;
         fetch(url + '?' + paramName + chrName + '&' + apiKey)
             .then( (response) =>{
                 return response.json();
