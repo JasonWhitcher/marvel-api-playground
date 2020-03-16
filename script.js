@@ -43,6 +43,7 @@ window.onload = () => {
                 return response.json();
             })
             .then( (data) => {
+                console.log(data);
                 let charID = data.data.id;
                 console.log('id: ' + charID);
             })
