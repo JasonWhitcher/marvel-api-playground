@@ -60,7 +60,7 @@ console.log('id: ' + charObject.id);
     }
 
     function getCharacterImage(characterObject) {
-        let imageURL = characterObject.thumbnail.path + characterObject.thumbnail.extension;
+        let imageURL = characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension;
         document.getElementById('char-image').setAttribute('src', imageURL);
     }
 
