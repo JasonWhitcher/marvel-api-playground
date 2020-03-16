@@ -41,6 +41,7 @@ window.onload = () => {
 console.log(data);
                 let charObject = data.data.results[0];
 console.log('id: ' + charObject.id);
+                getCharacterImage(charObject);
             })
             .catch( (error) => {
                 console.log('Fetch by Id error:' + error);
@@ -59,7 +60,8 @@ console.log('id: ' + charObject.id);
     }
 
     function getCharacterImage(characterObject) {
-        let imageURL = characterObject.data.results.thumbnail.path + characterObject.data.results.thumbnail.extension;
+        let imageURL = characterObject.thumbnail.path + characterObject.thumbnail.extension;
+        document.getElementById('char-image').setAttribute('src', imageURL);
     }
 
     function getCharacterDescription(characterObject) {
