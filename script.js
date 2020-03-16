@@ -19,14 +19,14 @@ window.onload = () => {
                 })
                 .then( (data) => {
                     let names = data.data.results;
-                    console.log('names:' + names);
+//console.log('names:' + names);
                     let optionsList = '';
                     datalistElement.innerHTML = '';
                     for (let name of names) {
                         optionsList += '<option value="' + name.name + '">';
                         console.log(name.name);
                     }
-                    console.log(optionsList);
+//console.log(optionsList);
                     datalistElement.innerHTML = optionsList;
                 })
                 .catch( (error) => {
@@ -37,7 +37,7 @@ window.onload = () => {
 
     inputSubmit.addEventListener('click', (event) => {
         console.log('BUTTON CLICKED');
-        /*let charName = document.getElementById('chr-name');
+        let charName = document.getElementById('chr-name');
         fetch(url + '?' + paramName + chrName + '&' + apiKey)
             .then( (response) =>{
                 return response.json();
@@ -48,7 +48,7 @@ window.onload = () => {
             })
             .catch( (error) => {
                 console.log('Fetch by Id error:' + error);
-            });*/
+            });
     });
 
 
