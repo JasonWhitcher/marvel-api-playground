@@ -45,7 +45,7 @@ console.log(url + '?' + paramName + charName + '&' + apiKey);
             })
             .then( (data) => {
 console.log(data);
-                let charID = data.data.results.id;
+                let charID = data.data.results[0].id;
 console.log('id: ' + charID);
             })
             .catch( (error) => {
