@@ -4,12 +4,12 @@ body {
   max-height: 960px;
 }
 
-#character-image-container {
+#char-image-container {
   width: 200px;
   height: 200px;
 }
 
-#character-image-container #char-image {
+#char-image-container #char-image {
   width: inherit;
   height: inherit;
 }
