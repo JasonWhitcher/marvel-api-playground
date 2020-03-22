@@ -53,6 +53,7 @@ window.onload = () => {
             .then( (data) => {
                 characterObject = data.data.results[0];
 console.log('characterObject: ' + characterObject);
+console.log(data);
                 updateDisplay(characterObject);
             })
             .catch( (error) => {
@@ -68,16 +69,19 @@ console.log('characterObject: ' + characterObject);
     }
 
     function showCharacterName(characterObject) {
+        console.log('Updating Name...');
         let characterName = characterObject.name;
         document.getElementById('char-name').innerText = characterName;
     }
 
     function showCharacterImage(characterObject) {
+        console.log('Updating Image...');
         let imageURL = characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension;
         document.getElementById('char-image').setAttribute('src', imageURL);
     }
 
     function showCharacterDescription(characterObject) {
+        console.log('Updating Description...');
         let characterDescription = characterObject.description;
         document.getElementById('char-description').innerText = characterDescription;
     }
