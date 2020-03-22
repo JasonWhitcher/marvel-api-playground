@@ -9,7 +9,18 @@ window.onload = () => {
     let datalistElement = document.getElementById('char-list');
     let inputSubmit = document.getElementById('char-submit');
 
+    let characterObject;
+
     inputName.addEventListener('input', (event) => {
+        showSearchSuggestions();
+    });
+
+    inputSubmit.addEventListener('click', (event) => {
+        showSearchResults();
+    });
+
+    // NEED TO TEST A FETCH ERROR HERE.
+    function showSearchSuggestions() {
         let chrName = inputName.value;
         if (chrName.length > 0) { // Make sure the input field is not empty.
             fetch(url + '?' + paramNameStartsWith + chrName + '&' + paramLimitNumber + '&' + apiKey)
@@ -26,46 +37,49 @@ window.onload = () => {
                     datalistElement.innerHTML = optionsList;
                 })
                 .catch( (error) => {
+                    let errorMessage = document.getElementById('error-message');
                     console.log('Fetch search error:' + error);
+                    errorMessage.innerText = 'There was an error connecting to the character data. Please try again later.';
                 });
         }
-    });
+    }
 
-    inputSubmit.addEventListener('click', (event) => {
+    function showSearchResults() {
         let charName = inputName.value;
         fetch(url + '?' + paramName + charName + '&' + apiKey)
             .then( (response) =>{
                 return response.json();
             })
             .then( (data) => {
-console.log(data);
-                let charObject = data.data.results[0];
-console.log('id: ' + charObject.id);
-                getCharacterImage(charObject);
+                characterObject = data.data.results[0];
+console.log('characterObject: ' + characterObject);
+                updateDisplay(characterObject);
             })
             .catch( (error) => {
                 console.log('Fetch by Id error:' + error);
             });
-    });
-
+    }
 
     function updateDisplay(characterObject) {
-        //let characterObject = characterObject;
-        console.log('Character ID: ' + getCharacterID(characterObject));
+        console.log('Updating Display...');
+        showCharacterName(characterObject);
+        showCharacterDescription(characterObject);
+        showCharacterImage(characterObject);
     }
 
-    function getCharacterID(characterObject) {
-        let characterID = characterObject.data.results.id;
-        return characterID;
+    function showCharacterName(characterObject) {
+        let characterName = characterObject.name;
+        document.getElementById('char-name').innerText = characterName;
     }
 
-    function getCharacterImage(characterObject) {
+    function showCharacterImage(characterObject) {
         let imageURL = characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension;
         document.getElementById('char-image').setAttribute('src', imageURL);
     }
 
-    function getCharacterDescription(characterObject) {
-        let characterDescription = characterObject.data.results.description;
+    function showCharacterDescription(characterObject) {
+        let characterDescription = characterObject.description;
+        document.getElementById('char-description').innerText = characterDescription;
     }
 
     function getFirstComicCover(characterObject) {
