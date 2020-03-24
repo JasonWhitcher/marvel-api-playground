@@ -71,7 +71,8 @@ console.log(data);
     function showCharacterName(characterObject) {
         let characterName = characterObject.name;
         console.log('Updating Name...' + characterName);
-        document.getElementById('char-name').innerText = characterName;
+        console.log('Placeholder Name: ' + document.getElementById('char-name').innerText);
+        //document.getElementById('char-name').innerText = characterName;
     }
 
     function showCharacterDescription(characterObject) {
@@ -79,7 +80,7 @@ console.log(data);
         console.log('Updating Description...' + characterDescription);
         document.getElementById('char-description').innerText = characterDescription;
     }
-    
+
     function showCharacterImage(characterObject) {
         let imageURL = characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension;
         console.log('Updating Image...');
