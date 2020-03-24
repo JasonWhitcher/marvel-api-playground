@@ -66,7 +66,7 @@ console.log(data);
         showCharacterName(characterObject);
         showCharacterDescription(characterObject);
         showCharacterImage(characterObject);
-        showRandomComicCover(characterObject);
+        getRandomComicCover(characterObject);
     }
 
     function showCharacterName(characterObject) {
