@@ -66,7 +66,7 @@ console.log(data);
         showCharacterName(characterObject);
         showCharacterDescription(characterObject);
         showCharacterImage(characterObject);
-        showRandomComicCovers(characterObject);
+        showRandomComicCover(characterObject);
     }
 
     function showCharacterName(characterObject) {
@@ -89,8 +89,14 @@ console.log(data);
     }
 
     function getRandomComicCover(characterObject) {
-        console.log('Available Number of Comics: ' + characterObject.comics.available);
+        let totalComics = characterObject.comics.available;
+        console.log('Available Number of Comics: ' + totalComics);
+        let randomNumber = getRandomInteger(1, totalComics);
+        console.log('Random Number: ' + randomNumber);
     }
     
+    function getRandomInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) ) + min;
+    }
     
 };
