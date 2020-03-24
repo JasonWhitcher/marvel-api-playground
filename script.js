@@ -71,19 +71,19 @@ console.log(data);
     function showCharacterName(characterObject) {
         let characterName = characterObject.name;
         console.log('Updating Name...' + characterName);
-        document.getElementById('char-name').innerHTML = characterName;
-    }
-
-    function showCharacterImage(characterObject) {
-        let imageURL = characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension;
-        console.log('Updating Image...');
-        document.getElementById('char-image').setAttribute('src', imageURL);
+        document.getElementById('char-name').innerText = characterName;
     }
 
     function showCharacterDescription(characterObject) {
         let characterDescription = characterObject.description;
         console.log('Updating Description...' + characterDescription);
         document.getElementById('char-description').innerText = characterDescription;
+    }
+    
+    function showCharacterImage(characterObject) {
+        let imageURL = characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension;
+        console.log('Updating Image...');
+        document.getElementById('char-image').setAttribute('src', imageURL);
     }
 
     function getFirstComicCover(characterObject) {
