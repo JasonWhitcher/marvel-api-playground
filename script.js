@@ -66,6 +66,7 @@ console.log(data);
         showCharacterName(characterObject);
         showCharacterDescription(characterObject);
         showCharacterImage(characterObject);
+        showRandomComicCovers(characterObject);
     }
 
     function showCharacterName(characterObject) {
@@ -87,8 +88,8 @@ console.log(data);
         document.getElementById('char-image').setAttribute('src', imageURL);
     }
 
-    function getFirstComicCover(characterObject) {
-        
+    function getRandomComicCover(characterObject) {
+        console.log('Available Number of Comics: ' + characterObject.comics.available);
     }
     
     
