@@ -69,20 +69,20 @@ console.log(data);
     }
 
     function showCharacterName(characterObject) {
-        console.log('Updating Name...');
         let characterName = characterObject.name;
+        console.log('Updating Name...' + characterName);
         document.getElementById('char-name').innerText = characterName;
     }
 
     function showCharacterImage(characterObject) {
-        console.log('Updating Image...');
         let imageURL = characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension;
+        console.log('Updating Image...');
         document.getElementById('char-image').setAttribute('src', imageURL);
     }
 
     function showCharacterDescription(characterObject) {
-        console.log('Updating Description...');
         let characterDescription = characterObject.description;
+        console.log('Updating Description...');
         document.getElementById('char-description').innerText = characterDescription;
     }
 
