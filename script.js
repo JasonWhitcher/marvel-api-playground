@@ -71,7 +71,7 @@ console.log(data);
     function showCharacterName(characterObject) {
         let characterName = characterObject.name;
         console.log('Updating Name...' + characterName);
-        document.getElementById('char-name').innerText = characterName;
+        document.getElementById('char-name').innerHTML = characterName;
     }
 
     function showCharacterImage(characterObject) {
@@ -82,7 +82,7 @@ console.log(data);
 
     function showCharacterDescription(characterObject) {
         let characterDescription = characterObject.description;
-        console.log('Updating Description...');
+        console.log('Updating Description...' + characterDescription);
         document.getElementById('char-description').innerText = characterDescription;
     }
 
