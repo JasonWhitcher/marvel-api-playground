@@ -71,8 +71,8 @@ console.log(data);
     function showCharacterName(characterObject) {
         let characterName = characterObject.name;
         console.log('Updating Name...' + characterName);
-        console.log('Placeholder Name: ' + document.getElementById('char-name').innerText);
-        //document.getElementById('char-name').innerText = characterName;
+        console.log('Placeholder Name: ' + document.getElementById('char-name-title').innerText);
+        document.getElementById('char-name-title').innerText = characterName;
     }
 
     function showCharacterDescription(characterObject) {
