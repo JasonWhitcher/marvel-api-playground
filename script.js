@@ -52,8 +52,8 @@ window.onload = () => {
             })
             .then( (data) => {
                 characterObject = data.data.results[0];
-console.log('characterObject: ' + characterObject);
-console.log(data);
+//console.log('characterObject: ' + characterObject);
+//console.log(data);
                 updateDisplay(characterObject);
             })
             .catch( (error) => {
@@ -72,7 +72,6 @@ console.log(data);
     function showCharacterName(characterObject) {
         let characterName = characterObject.name;
         console.log('Updating Name...' + characterName);
-        console.log('Placeholder Name: ' + document.getElementById('char-name-title').innerText);
         document.getElementById('char-name-title').innerText = characterName;
     }
 
@@ -93,6 +92,19 @@ console.log(data);
         console.log('Available Number of Comics: ' + totalComics);
         let randomNumber = getRandomInteger(1, totalComics);
         console.log('Random Number: ' + randomNumber);
+        let comicLink = characterObject.comics.items[randomNumber].resourceURI;
+        let comicURL = comicLink + '?' + apiKey;
+        fetch(comicURL)
+            .then( (response) =>{
+                return response.json();
+            })
+            .then( (data) => {
+                //let comicImage = data.
+                console.log('Comic Data: ' + data);
+            })
+            .catch( (error) => {
+                console.log('Fetch comic error:' + error);
+            });
     }
     
     function getRandomInteger(min, max) {
