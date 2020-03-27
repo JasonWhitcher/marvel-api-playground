@@ -53,7 +53,7 @@ window.onload = () => {
             .then( (data) => {
                 characterObject = data.data.results[0];
 //console.log('characterObject: ' + characterObject);
-console.log('Character Object' + data);
+console.log(data);
                 updateDisplay(characterObject);
             })
             .catch( (error) => {
@@ -82,7 +82,8 @@ console.log('Character Object' + data);
     }
 
     function showCharacterImage(characterObject) {
-        let imageURL = characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension;
+        let tempURL = characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension;
+        let imageURL = convertToHTTPS(tempURL);
         console.log('Updating Image...');
         document.getElementById('char-image').setAttribute('src', imageURL);
     }
@@ -92,10 +93,10 @@ console.log('Character Object' + data);
         console.log('Available Number of Comics: ' + totalComics);
         let randomNumber = getRandomInteger(1, totalComics);
         console.log('Random Number: ' + randomNumber);
-        //let comicLink = characterObject.comics.items[randomNumber].resourceURI;
-        let comicLink = 'https://gateway.marvel.com/v1/public/comics/1148';
+        let comicLink = characterObject.comics.items[randomNumber].resourceURI;
 console.log('Comic Link:' + comicLink);
-        let comicURL = comicLink + '?' + apiKey;
+        let tempComicURL = comicLink + '?' + apiKey;
+        let comicURL = convertToHTTPS(tempComicURL);
 console.log('Comic URL:' + comicURL);
         fetch(comicURL)
             .then( (response) =>{
@@ -103,13 +104,18 @@ console.log('Comic URL:' + comicURL);
             })
             .then( (data) => {
                 //let comicImage = data.
-console.log('Comic Data: ' + data);
+console.log(data);
             })
             .catch( (error) => {
                 console.log('Fetch comic error:' + error);
             });
     }
     
+    function convertToHTTPS(originalURL) {
+        let newURL = originalURL.replace('http', 'https');
+        return newURL;
+    }
+
     function getRandomInteger(min, max) {
         return Math.floor(Math.random() * (max - min + 1) ) + min;
     }
