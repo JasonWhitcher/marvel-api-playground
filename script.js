@@ -93,14 +93,16 @@ console.log('Character Object' + data);
         let randomNumber = getRandomInteger(1, totalComics);
         console.log('Random Number: ' + randomNumber);
         let comicLink = characterObject.comics.items[randomNumber].resourceURI;
+console.log('Comic Link:' + comicLink);
         let comicURL = comicLink + '?' + apiKey;
+console.log('Comic URL:' + comicURL);
         fetch(comicURL)
             .then( (response) =>{
                 return response.json();
             })
             .then( (data) => {
                 //let comicImage = data.
-                console.log('Comic Data: ' + data);
+console.log('Comic Data: ' + data);
             })
             .catch( (error) => {
                 console.log('Fetch comic error:' + error);
