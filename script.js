@@ -53,7 +53,7 @@ window.onload = () => {
             .then( (data) => {
                 characterObject = data.data.results[0];
 //console.log('characterObject: ' + characterObject);
-//console.log(data);
+console.log('Character Object' + data);
                 updateDisplay(characterObject);
             })
             .catch( (error) => {
