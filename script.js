@@ -103,8 +103,11 @@ console.log('Comic URL:' + comicURL);
                 return response.json();
             })
             .then( (data) => {
-                //let comicImage = data.
+                let tempURL = data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension;
+                let comicURL = convertToHTTPS(tempURL);
 console.log(data);
+console.log('comicURL: ' + comicURL);
+                return comicURL;
             })
             .catch( (error) => {
                 console.log('Fetch comic error:' + error);
@@ -112,7 +115,11 @@ console.log(data);
     }
     
     function convertToHTTPS(originalURL) {
-        let newURL = originalURL.replace('http', 'https');
+        let newURL = originalURL;
+        let isHTTPS =  originalURL.indexOf('https');
+        if ( isHTTPS == -1 ) {
+            newURL = originalURL.replace('http', 'https');
+        }
         return newURL;
     }
 
