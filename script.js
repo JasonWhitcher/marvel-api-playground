@@ -46,6 +46,7 @@ window.onload = () => {
 
     function showSearchResults() {
         let charName = inputName.value;
+console.log('Fetch Character by Id URL :' + url + '?' + paramName + charName + '&' + apiKey);
         fetch(url + '?' + paramName + charName + '&' + apiKey)
             .then( (response) =>{
                 return response.json();
@@ -57,7 +58,7 @@ console.log(data);
                 updateDisplay(characterObject);
             })
             .catch( (error) => {
-                console.log('Fetch by Id error:' + error);
+                console.log('Fetch Character by Id error:' + error);
             });
     }
 
