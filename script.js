@@ -91,12 +91,16 @@ console.log(data);
 
     function getRandomComicCover(characterObject) {
         let totalComics = characterObject.comics.available;
-        console.log('Available Number of Comics: ' + totalComics);
-        let randomNumber = getRandomInteger(1, totalComics);
-        console.log('Random Number: ' + randomNumber);
-        let comicLink = characterObject.comics.items[randomNumber].resourceURI;
+console.log('Available Number of Comics: ' + totalComics);
+        let randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
+console.log('Random Number: ' + randomNumber);
+// use comic lookup with offset from the randomNumber.
+
+
+    //ERROR ON NEXT LINE can not find resourceURI.    
+    let comicLink = 'https://gateway.marvel.com:443/v1/public/characters/1009297/comics?limit=1&offset=' + randomNumber;
 console.log('Comic Link:' + comicLink);
-        let tempComicURL = comicLink + '?' + apiKey;
+        let tempComicURL = comicLink + '&' + apiKey;
         let comicURL = convertToHTTPS(tempComicURL);
 console.log('Comic URL:' + comicURL);
         fetch(comicURL)
