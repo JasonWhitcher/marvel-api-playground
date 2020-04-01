@@ -67,7 +67,7 @@ console.log(data);
         showCharacterName(characterObject);
         showCharacterDescription(characterObject);
         showCharacterImage(characterObject);
-        getRandomComicCover(characterObject);
+        getRandomComicCovers(characterObject);
     }
 
     function showCharacterName(characterObject) {
@@ -87,6 +87,17 @@ console.log(data);
         let imageURL = convertToHTTPS(tempURL);
         console.log('Updating Image...');
         document.getElementById('char-image').setAttribute('src', imageURL);
+    }
+
+    function showRandomComicCovers(characterObject) {
+        let comicCoversContainer = document.getElementById('char-comic-covers');
+        let comicImages;
+
+        comicImages  = '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
+        comicImages += '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
+        comicImages += '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
+        
+        comicCoversContainer.innerHTML = comicImages;
     }
 
     function getRandomComicCover(characterObject) {
