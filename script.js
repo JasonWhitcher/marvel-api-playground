@@ -90,11 +90,12 @@ console.log(data);
     }
 
     function showRandomComicCovers(characterObject) {
+console.log('showRandomComicCovers() function');
         let comicCoversContainer = document.getElementById('char-comic-covers');
         let comicImages;
 
         comicImages  = '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
-        console.log('TEST:' + getRandomComicCover(characterObject));
+console.log('TEST:' + getRandomComicCover(characterObject));
         comicImages += '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
         comicImages += '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
         
