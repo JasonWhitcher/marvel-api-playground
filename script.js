@@ -96,26 +96,26 @@ console.log('showRandomComicCovers() function');
 
         comicImages  = '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
 console.log('TEST:' + getRandomComicCover(characterObject));
-        comicImages += '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
-        comicImages += '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
+        //comicImages += '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
+        //comicImages += '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
         
         comicCoversContainer.innerHTML = comicImages;
     }
 
     function getRandomComicCover(characterObject) {
         let totalComics = characterObject.comics.available;
-console.log('Available Number of Comics: ' + totalComics);
+//console.log('Available Number of Comics: ' + totalComics);
         let randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
-console.log('Random Number: ' + randomNumber);
+//console.log('Random Number: ' + randomNumber);
 // use comic lookup with offset from the randomNumber.
 
 
     //ERROR ON NEXT LINE can not find resourceURI.    
     let comicLink = 'https://gateway.marvel.com:443/v1/public/characters/1009297/comics?limit=1&offset=' + randomNumber;
-console.log('Comic Link:' + comicLink);
+//console.log('Comic Link:' + comicLink);
         let tempComicURL = comicLink + '&' + apiKey;
         let comicURL = convertToHTTPS(tempComicURL);
-console.log('Comic URL:' + comicURL);
+//console.log('Comic URL:' + comicURL);
         fetch(comicURL)
             .then( (response) =>{
                 return response.json();
@@ -123,7 +123,7 @@ console.log('Comic URL:' + comicURL);
             .then( (data) => {
                 let tempURL = data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension;
                 let comicURL = convertToHTTPS(tempURL);
-console.log(data);
+//console.log(data);
 console.log('comicURL: ' + comicURL);
                 return comicURL;
             })
