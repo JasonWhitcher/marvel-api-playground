@@ -94,6 +94,7 @@ console.log(data);
         let comicImages;
 
         comicImages  = '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
+        console.log('TEST:' + getRandomComicCover(characterObject));
         comicImages += '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
         comicImages += '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
         
