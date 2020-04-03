@@ -115,8 +115,8 @@ console.log('showRandomComicCovers() function');
                 let tempURL = data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension;
                 let comicURL = convertToHTTPS(tempURL);
 //console.log(data);
-console.log('comicURL: ' + comicURL);
                 comicImage = '<img class="comic-cover" src="' + comicURL + '" />';
+console.log('comicImage: ' + comicImage);
                 return comicImage;
             })
             .catch( (error) => {
