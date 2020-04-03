@@ -89,17 +89,11 @@ console.log(data);
         document.getElementById('char-image').setAttribute('src', imageURL);
     }
 
-    async function showRandomComicCovers(characterObject) {
+    function showRandomComicCovers(characterObject) {
 console.log('showRandomComicCovers() function');
         let comicCoversContainer = document.getElementById('char-comic-covers');
-        let comicImages;
-
-        comicImages  = '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
-console.log('TEST:' + getRandomComicCover(characterObject));
-        //comicImages += '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
-        //comicImages += '<img class="comic-cover" src="' + getRandomComicCover(characterObject) + '" />';
-        
-        comicCoversContainer.innerHTML = comicImages;
+/////////////////////////////////////////////////////////////////
+        comicCoversContainer.innerHTML += getRandomComicCover(characterObject);
     }
 
     function getRandomComicCover(characterObject) {
@@ -107,11 +101,8 @@ console.log('TEST:' + getRandomComicCover(characterObject));
 //console.log('Available Number of Comics: ' + totalComics);
         let randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
 //console.log('Random Number: ' + randomNumber);
-// use comic lookup with offset from the randomNumber.
-
-
-    //ERROR ON NEXT LINE can not find resourceURI.    
-    let comicLink = 'https://gateway.marvel.com:443/v1/public/characters/1009297/comics?limit=1&offset=' + randomNumber;
+        let comicImage;    
+        let comicLink = 'https://gateway.marvel.com:443/v1/public/characters/1009297/comics?limit=1&offset=' + randomNumber;
 //console.log('Comic Link:' + comicLink);
         let tempComicURL = comicLink + '&' + apiKey;
         let comicURL = convertToHTTPS(tempComicURL);
@@ -125,7 +116,8 @@ console.log('TEST:' + getRandomComicCover(characterObject));
                 let comicURL = convertToHTTPS(tempURL);
 //console.log(data);
 console.log('comicURL: ' + comicURL);
-                return comicURL;
+                comicImage = '<img class="comic-cover" src="' + comicURL + '" />';
+                return comicImage;
             })
             .catch( (error) => {
                 console.log('Fetch comic error:' + error);
