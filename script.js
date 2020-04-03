@@ -92,11 +92,11 @@ console.log(data);
     function showRandomComicCovers(characterObject) {
 console.log('showRandomComicCovers() function');
         let comicCoversContainer = document.getElementById('char-comic-covers');
-/////////////////////////////////////////////////////////////////
-        comicCoversContainer.innerHTML += getRandomComicCover(characterObject);
+        comicCoversContainer.innerHTML = '';
+        getRandomComicCover(characterObject, comicCoversContainer);
     }
 
-    function getRandomComicCover(characterObject) {
+    function getRandomComicCover(characterObject, comicCoversContainer) {
         let totalComics = characterObject.comics.available;
 //console.log('Available Number of Comics: ' + totalComics);
         let randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
@@ -117,7 +117,8 @@ console.log('showRandomComicCovers() function');
 //console.log(data);
                 comicImage = '<img class="comic-cover" src="' + comicURL + '" />';
 console.log('comicImage: ' + comicImage);
-                return comicImage;
+                comicCoversContainer.innerHTML += comicImage;
+                return;
             })
             .catch( (error) => {
                 console.log('Fetch comic error:' + error);
