@@ -15,4 +15,23 @@ body {
   -o-object-fit: contain;
      object-fit: contain;
 }
+
+#char-comic-covers-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+}
+
+#char-comic-covers-container .comic-cover {
+  width: 200px;
+}
 /*# sourceMappingURL=style.css.map */
