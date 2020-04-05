@@ -114,10 +114,15 @@ console.log('comic data:');
 console.log(data);
                 let tempURL = data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension;
                 let comicURL = convertToHTTPS(tempURL);
+                let comicTitle = data.data.results[0].title;
+                let comicDescription = data.data.results[0].description;
+                comicTitle = comicTitle != null ? comicTitle : 'No title available';
+                comicDescription = comicDescription != null ? comicDescription : 'No description available';
+
                 comicInfo  = '<div class="comic-container">'
-                comicInfo  = '<img class="comic-cover" src="' + comicURL + '" />';
-                comicInfo += '<h4>' + data.data.results[0].title + '</h4>';
-                comicInfo += '<p>' + data.data.results[0].description + '</p>';
+                comicInfo += '<img class="comic-cover" src="' + comicURL + '" />';
+                comicInfo += '<h4>' + comicTitle + '</h4>';
+                comicInfo += '<p>' + comicDescription + '</p>';
                 comicInfo += '</div>'
                 comicCoversContainer.innerHTML += comicInfo;
                 return;
