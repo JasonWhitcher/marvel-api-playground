@@ -53,7 +53,7 @@ console.log('Fetch Character by Id URL :' + url + '?' + paramName + charName + '
             })
             .then( (data) => {
                 characterObject = data.data.results[0];
-//console.log('characterObject: ' + characterObject);
+console.log('character data:');
 console.log(data);
                 updateDisplay(characterObject);
             })
@@ -110,6 +110,8 @@ console.log('showRandomComicCovers() function');
                 return response.json();
             })
             .then( (data) => {
+console.log('comic data:');
+console.log(data);
                 let tempURL = data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension;
                 let comicURL = convertToHTTPS(tempURL);
                 comicImage = '<img class="comic-cover" src="' + comicURL + '" />';
