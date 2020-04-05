@@ -101,7 +101,7 @@ console.log('showRandomComicCovers() function');
     function getRandomComicCover(characterObject, comicCoversContainer) {
         let totalComics = characterObject.comics.available;
         let randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
-        let comicImage;    
+        let comicInfo;    
         let comicLink = 'https://gateway.marvel.com:443/v1/public/characters/1009297/comics?limit=1&offset=' + randomNumber;
         let tempComicURL = comicLink + '&' + apiKey;
         let comicURL = convertToHTTPS(tempComicURL);
@@ -114,8 +114,12 @@ console.log('comic data:');
 console.log(data);
                 let tempURL = data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension;
                 let comicURL = convertToHTTPS(tempURL);
-                comicImage = '<img class="comic-cover" src="' + comicURL + '" />';
-                comicCoversContainer.innerHTML += comicImage;
+                comicInfo  = '<div class="comic-container">'
+                comicInfo  = '<img class="comic-cover" src="' + comicURL + '" />';
+                comicInfo += '<h4>' + data.data.results[0].title + '</h4>';
+                comicInfo += '<p>' + data.data.results[0].description + '</p>';
+                comicInfo += '</div>'
+                comicCoversContainer.innerHTML += comicInfo;
                 return;
             })
             .catch( (error) => {

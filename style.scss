@@ -1,7 +1,7 @@
 body {
     border: 1px solid blue;
     max-width: 960px;
-    max-height: 960px;
+    max-height: 2000px;
 }
 #char-image-container {
     width: 200px;
@@ -17,9 +17,14 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: right;
-    .comic-cover {
+    .comic-container {
+        display: flex;
+        flex-direction: column;
         margin: 2px 2px;
         width: 200px;
-        object-fit: contain;
+        img {
+            width: inherit;
+            object-fit: contain;
+        }
     }
 }
