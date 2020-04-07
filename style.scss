@@ -21,7 +21,8 @@ body {
         display: flex;
         flex-direction: column;
         margin: 2px 2px;
-        width: 200px;
+        min-width: 200px;
+        max-width: 500px;
         img {
             width: inherit;
             object-fit: contain;
