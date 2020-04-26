@@ -1,12 +1,11 @@
 window.onload = () => {
     class ComicCharacter {
         constructor(characterObject) {
-            this._name = 'test name';//characterObject.name;
+            this._name = characterObject.name;
             this._description = 'test description';//characterObject.description;
             this._characterImage = 'test image';//convertToHTTPS(characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension); // url?
-            async () => {
-                this._comicCovers = await this.getRandomComicCovers(characterObject); // Array of arrays of comic information(title, description, image).
-            }
+            this._comicCovers = this.getRandomComicCovers(characterObject); // Array of arrays of comic information(title, description, image).
+            
         }
         
         /*
@@ -24,7 +23,7 @@ window.onload = () => {
                 let randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
                 let comicLink = 'https://gateway.marvel.com:443/v1/public/characters/1009297/comics?limit=1&offset=' + randomNumber + '&' + apiKey;
                 let comicURL = convertToHTTPS(comicLink);
-                fetch(comicURL)
+                await fetch(comicURL)
                     .then( (response) =>{
                         return response.json();
                     })
