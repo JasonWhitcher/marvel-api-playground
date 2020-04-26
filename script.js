@@ -103,10 +103,9 @@ window.onload = () => {
                 return response.json();
             })
             .then( (data) => {
-                characterObject = data.data.results[0];
+                //characterObject = data.data.results[0];
 console.log('character data:');
 console.log(data);
-                character = new ComicCharacter(characterObject);
                 for (property in character) {
                     console.log(`${property}: ${character[property]}`);
                 }
