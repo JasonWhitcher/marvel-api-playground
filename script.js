@@ -1,7 +1,7 @@
 window.onload = () => {
     class ComicCharacter {
         constructor(characterObject) {
-            this._name = characterObject.name;
+            this._name = 'test name';//characterObject.name;
             this._description = characterObject.description;
             this._characterImage = convertToHTTPS(characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension); // url?
             async () => {
