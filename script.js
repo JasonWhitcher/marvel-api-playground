@@ -95,7 +95,8 @@ window.onload = () => {
 
     function showSearchResults() {
         character = new ComicCharacter(characterObject);
-        
+console.log('characterClass:');
+console.log(character);
         let charName = inputName.value;
 //console.log('Fetch Character by Id URL :' + url + '?' + paramName + charName + '&' + apiKey);
         fetch(url + '?' + paramName + charName + '&' + apiKey)
