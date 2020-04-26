@@ -98,7 +98,7 @@ window.onload = () => {
 console.log('characterClass:');
 console.log(character);
         let charName = inputName.value;
-//console.log('Fetch Character by Id URL :' + url + '?' + paramName + charName + '&' + apiKey);
+console.log('Fetch Character by Id URL :' + url + '?' + paramName + charName + '&' + apiKey);
         fetch(url + '?' + paramName + charName + '&' + apiKey)
             .then( (response) =>{
                 return response.json();
@@ -107,9 +107,9 @@ console.log(character);
                 //characterObject = data.data.results[0];
 console.log('character data:');
 console.log(data);
-                for (property in character) {
+                /*for (property in character) {
                     console.log(`${property}: ${character[property]}`);
-                }
+                }*/
                 //updateDisplay(characterObject);
             })
             .catch( (error) => {
