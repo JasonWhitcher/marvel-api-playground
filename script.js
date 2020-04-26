@@ -93,9 +93,7 @@ window.onload = () => {
     }
 
     function showSearchResults() {
-        character = new ComicCharacter(characterObject);
-console.log('characterClass:');
-console.log(character);
+        
         let charName = inputName.value;
 console.log('Fetch Character by Id URL :' + url + '?' + paramName + charName + '&' + apiKey);
         fetch(url + '?' + paramName + charName + '&' + apiKey)
@@ -103,9 +101,12 @@ console.log('Fetch Character by Id URL :' + url + '?' + paramName + charName + '
                 return response.json();
             })
             .then( (data) => {
-                //characterObject = data.data.results[0];
-console.log('character data:');
-console.log(data);
+                characterObject = data.data.results[0];
+                character = new ComicCharacter(characterObject);
+console.log('characterClass:');
+console.log(character);
+//console.log('character data:');
+//console.log(data);
                 /*for (property in character) {
                     console.log(`${property}: ${character[property]}`);
                 }*/
