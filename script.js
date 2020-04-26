@@ -117,75 +117,7 @@ console.log(data);
             });
     }
 
-    function updateDisplay(characterObject) {
-        console.log('Updating Display...');
-        showCharacterName(characterObject);
-        showCharacterDescription(characterObject);
-        showCharacterImage(characterObject);
-        showRandomComicCovers(characterObject);
-    }
-
-    function showCharacterName(characterObject) {
-        let characterName = characterObject.name;
-        console.log('Updating Name...' + characterName);
-        document.getElementById('char-name-title').innerText = characterName;
-    }
-
-    function showCharacterDescription(characterObject) {
-        let characterDescription = characterObject.description;
-        console.log('Updating Description...' + characterDescription);
-        document.getElementById('char-description').innerText = characterDescription;
-    }
-
-    function showCharacterImage(characterObject) {
-        let tempURL = characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension;
-        let imageURL = convertToHTTPS(tempURL);
-        console.log('Updating Image...');
-        document.getElementById('char-image').setAttribute('src', imageURL);
-    }
-
-    function showRandomComicCovers(characterObject) {
-console.log('showRandomComicCovers() function');
-        let comicCoversContainer = document.getElementById('char-comic-covers-container');
-        comicCoversContainer.innerHTML = '';
-        for (numberOfComics = 1; numberOfComics <= 3; numberOfComics++ ) {
-            getRandomComicCover(characterObject, comicCoversContainer);
-        }
-    }
-
-    function getRandomComicCover(characterObject, comicCoversContainer) {
-        let totalComics = characterObject.comics.available;
-        let randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
-        let comicInfo;    
-        let comicLink = 'https://gateway.marvel.com:443/v1/public/characters/1009297/comics?limit=1&offset=' + randomNumber;
-        let tempComicURL = comicLink + '&' + apiKey;
-        let comicURL = convertToHTTPS(tempComicURL);
-        fetch(comicURL)
-            .then( (response) =>{
-                return response.json();
-            })
-            .then( (data) => {
-console.log('comic data:');
-console.log(data);
-                let tempURL = data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension;
-                let comicURL = convertToHTTPS(tempURL);
-                let comicTitle = data.data.results[0].title;
-                let comicDescription = data.data.results[0].description;
-                comicTitle = comicTitle != null ? comicTitle : 'No title available';
-                comicDescription = comicDescription != null ? comicDescription : 'No description available';
-
-                comicInfo  = '<div class="comic-container">'
-                comicInfo += '<img class="comic-cover" src="' + comicURL + '" />';
-                comicInfo += '<h4>' + comicTitle + '</h4>';
-                comicInfo += '<p>' + comicDescription + '</p>';
-                comicInfo += '</div>'
-                comicCoversContainer.innerHTML += comicInfo;
-                return;
-            })
-            .catch( (error) => {
-                console.log('Fetch comic error:' + error);
-            });
-    }
+    
     
     function convertToHTTPS(originalURL) {
         let newURL = originalURL;
