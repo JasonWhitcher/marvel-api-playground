@@ -12,21 +12,43 @@ body {
         object-fit: contain;
     }
 }
-#char-comic-covers-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: right;
-    .comic-container {
+#char-random-comic-container {
+    position: relative;;
+    #char-comic-covers-container {
         display: flex;
-        flex-direction: column;
-        margin: 2px 2px;
-        width: 33%;
-        min-width: 200px;
-        max-width: 450px;
-        img {
-            width: inherit;
-            object-fit: contain;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: right;
+        .comic-container {
+            display: flex;
+            flex-direction: column;
+            margin: 2px 2px;
+            width: 33%;
+            min-width: 200px;
+            max-width: 450px;
+            img {
+                width: inherit;
+                object-fit: contain;
+            }
         }
+    }
+    #char-comic-description-container {
+        border: 2px solid green;
+        border-radius: 7px;
+        width: 600px;
+        position: relative;
+        top: 0px;
+        left: -600px;
+    }
+}
+@keyframes slide-in {
+    0% {
+        left: 0px;
+    }
+    90% {
+        left: 500px;
+    }
+    100% {
+        left: 600px;
     }
 }

@@ -1,4 +1,53 @@
 window.onload = () => {
+    class ComicCharacter {
+        constructor(characterObject) {
+            this._name = characterObject.name;
+            this._description = characterObject.description;
+            this._characterImage = convertToHTTPS(characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension); // url?
+            async () => {
+                this._comicCovers = await this.getRandomComicCovers(characterObject); // Array of arrays of comic information(title, description, image).
+            }
+        }
+        
+        /*
+        @param  characterObject {object}
+        @return comicCovers     {array}     Array of objects. Objects contain comic cover: title, description, url.
+        */
+        async getRandomComicCovers(characterObject) {
+            let totalComics = characterObject.comics.available;
+            let randomNumber = undefined;
+            let comicLink = undefined;
+            let comicURL = undefined;
+            let comics = new Array;
+            
+            for (let count = 0; count < 3; count++) {
+                let randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
+                let comicLink = 'https://gateway.marvel.com:443/v1/public/characters/1009297/comics?limit=1&offset=' + randomNumber + '&' + apiKey;
+                let comicURL = convertToHTTPS(comicLink);
+                fetch(comicURL)
+                    .then( (response) =>{
+                        return response.json();
+                    })
+                    .then( (data) => {
+                        comicURL = convertToHTTPS(data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension);
+                        comicTitle = data.data.results[0].title;
+                        comicTitle = comicTitle != null ? comicTitle : 'No title available';
+                        comicDescription = data.data.results[0].description;
+                        comicDescription = comicDescription != null ? comicDescription : 'No description available';
+                        comics[count] = {
+                            title: comicTitle,
+                            description: comicDescription,
+                            url: comicURL
+                        };
+                })
+                .catch( (error) => {
+                    console.log('Fetch comic error:' + error);
+                });
+            }
+            return comics;
+        }
+    }
+    
     let url = 'https://gateway.marvel.com/v1/public/characters';
     let apiKey = 'apikey=b703ebcf36f7b7bdb42b10f2dd8f1b39';
     let paramNameStartsWith = 'nameStartsWith=';
@@ -45,8 +94,10 @@ window.onload = () => {
     }
 
     function showSearchResults() {
+        character = new ComicCharacter(characterObject);
+        
         let charName = inputName.value;
-console.log('Fetch Character by Id URL :' + url + '?' + paramName + charName + '&' + apiKey);
+//console.log('Fetch Character by Id URL :' + url + '?' + paramName + charName + '&' + apiKey);
         fetch(url + '?' + paramName + charName + '&' + apiKey)
             .then( (response) =>{
                 return response.json();
@@ -55,7 +106,11 @@ console.log('Fetch Character by Id URL :' + url + '?' + paramName + charName + '
                 characterObject = data.data.results[0];
 console.log('character data:');
 console.log(data);
-                updateDisplay(characterObject);
+                character = new ComicCharacter(characterObject);
+                for (property in character) {
+                    console.log(`${property}: ${character[property]}`);
+                }
+                //updateDisplay(characterObject);
             })
             .catch( (error) => {
                 console.log('Fetch Character by Id error:' + error);
