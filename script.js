@@ -2,8 +2,8 @@ window.onload = () => {
     class ComicCharacter {
         constructor(characterObject) {
             this._name = 'test name';//characterObject.name;
-            this._description = characterObject.description;
-            this._characterImage = convertToHTTPS(characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension); // url?
+            this._description = 'test description';//characterObject.description;
+            this._characterImage = 'test image';//convertToHTTPS(characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension); // url?
             async () => {
                 this._comicCovers = await this.getRandomComicCovers(characterObject); // Array of arrays of comic information(title, description, image).
             }
