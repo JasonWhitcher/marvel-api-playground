@@ -15,9 +15,8 @@ window.onload = () => {
         */
         getRandomComicCovers(characterObject) {
             let totalComics = characterObject.comics.available;
-console.log('availabel comics:' + totalComics);
+            let comicData;
             let randomNumber;
-            let comicLink;
             let comicURL;
             let comicTitle;
             let comicDescription;
@@ -25,26 +24,20 @@ console.log('availabel comics:' + totalComics);
             
             for (let count = 0; count < 3; count++) {
                 randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
-console.log('char ID:' + this._id);
-                comicLink = GATEWAY_URL + '/' + this._id + '/comics?limit=1&offset=' + randomNumber + '&' + API_KEY;
-                comicURL = convertToHTTPS(comicLink);
-console.log('comicURL:' + comicURL);
+                comicURL = convertToHTTPS(`${GATEWAY_URL}/${this._id}/comics?limit=1&offset=${randomNumber}&${API_KEY}`);
                 fetch(comicURL)
                     .then( (response) =>{
                         return response.json();
                     })
                     .then( (data) => {
-console.log('comic data:');
-console.log(data);
-                        comicURL = convertToHTTPS(data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension);
-                        comicTitle = data.data.results[0].title;
-                        comicTitle = comicTitle != null ? comicTitle : 'No title available';
-                        comicDescription = data.data.results[0].description;
-                        comicDescription = comicDescription != null ? comicDescription : 'No description available';
+                        comicData = data.data.results[0];
+                        comicURL = convertToHTTPS(comicData.thumbnail.path + '.' + comicData.thumbnail.extension);
+                        //comicTitle = comicData.title != null ? comicData.title : 'No title available';
+                        //comicDescription = comicData.description != null ? comicData.description : 'No description available';
                         comics[count] = {
-                            title: comicTitle,
-                            description: comicDescription,
-                            url: comicURL
+                            title:          comicData.title != null ? comicData.title : 'No title available',
+                            description:    comicData.description != null ? comicData.description : 'No description available',
+                            url:            comicURL
                         };
                 })
                 .catch( (error) => {
