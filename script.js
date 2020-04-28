@@ -1,6 +1,7 @@
 window.onload = () => {
     class ComicCharacter {
         constructor(characterObject) {
+            this.id = characterObject.id;
             this._name = characterObject.name;
             this._description = characterObject.description;
             this._characterImage = convertToHTTPS(characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension); // url?
@@ -14,6 +15,7 @@ window.onload = () => {
         */
         async getRandomComicCovers(characterObject) {
             let totalComics = characterObject.comics.available;
+console.log('availabel comics:' + totalComics);
             let randomNumber = undefined;
             let comicLink = undefined;
             let comicURL = undefined;
@@ -21,7 +23,7 @@ window.onload = () => {
             
             for (let count = 0; count < 3; count++) {
                 let randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
-                let comicLink = GATEWAY_URL + '/1009297/comics?limit=1&offset=' + randomNumber + '&' + API_KEY;
+                let comicLink = GATEWAY_URL + '/' + this.id + '/comics?limit=1&offset=' + randomNumber + '&' + API_KEY;
                 let comicURL = convertToHTTPS(comicLink);
                 await fetch(comicURL)
                     .then( (response) =>{
@@ -93,7 +95,6 @@ window.onload = () => {
     }
 
     function showSearchResults() {
-        
         let charName = inputName.value;
 console.log('Fetch Character by Id URL :' + GATEWAY_URL + '?' + paramName + charName + '&' + API_KEY);
         fetch(GATEWAY_URL + '?' + paramName + charName + '&' + API_KEY)
@@ -121,7 +122,7 @@ console.log(character);
     
     function convertToHTTPS(originalURL) {
         let newURL = originalURL;
-        let isHTTPS =  originalURL.indexOf('https');
+        let isHTTPS = originalURL.indexOf('https');
         if ( isHTTPS == -1 ) {
             newURL = originalURL.replace('http', 'https');
         }
