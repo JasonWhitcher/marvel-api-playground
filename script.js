@@ -27,7 +27,7 @@ console.log('char ID:' + this._id);
                 let comicLink = GATEWAY_URL + '/' + this._id + '/comics?limit=1&offset=' + randomNumber + '&' + API_KEY;
                 let comicURL = convertToHTTPS(comicLink);
 console.log('comicURL:' + comicURL);
-                await fetch(comicURL)
+                fetch(comicURL)
                     .then( (response) =>{
                         return response.json();
                     })
