@@ -32,6 +32,8 @@ console.log('comicURL:' + comicURL);
                         return response.json();
                     })
                     .then( (data) => {
+console.log('comic data:');
+console.log(data);
                         comicURL = convertToHTTPS(data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension);
                         comicTitle = data.data.results[0].title;
                         comicTitle = comicTitle != null ? comicTitle : 'No title available';
