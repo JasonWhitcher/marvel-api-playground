@@ -100,8 +100,8 @@ window.onload = () => {
             .then( (data) => {
                 characterObject = data.data.results[0];
                 character = new ComicCharacter(characterObject);
-//console.log('characterClass:');
-//console.log(character);
+console.log('characterClass:');
+console.log(character);
                 for (property in character) {
                     console.log(`${property}: ${character[property]}`);
                 }
