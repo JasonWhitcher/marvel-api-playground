@@ -16,16 +16,18 @@ window.onload = () => {
         getRandomComicCovers(characterObject) {
             let totalComics = characterObject.comics.available;
 console.log('availabel comics:' + totalComics);
-            let randomNumber = undefined;
-            let comicLink = undefined;
-            let comicURL = undefined;
+            let randomNumber;
+            let comicLink;
+            let comicURL;
+            let comicTitle;
+            let comicDescription;
             let comics = new Array;
             
             for (let count = 0; count < 3; count++) {
-                let randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
+                randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
 console.log('char ID:' + this._id);
-                let comicLink = GATEWAY_URL + '/' + this._id + '/comics?limit=1&offset=' + randomNumber + '&' + API_KEY;
-                let comicURL = convertToHTTPS(comicLink);
+                comicLink = GATEWAY_URL + '/' + this._id + '/comics?limit=1&offset=' + randomNumber + '&' + API_KEY;
+                comicURL = convertToHTTPS(comicLink);
 console.log('comicURL:' + comicURL);
                 fetch(comicURL)
                     .then( (response) =>{
