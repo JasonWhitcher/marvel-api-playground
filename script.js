@@ -26,6 +26,7 @@ console.log('availabel comics:' + totalComics);
 console.log('char ID:' + this._id);
                 let comicLink = GATEWAY_URL + '/' + this._id + '/comics?limit=1&offset=' + randomNumber + '&' + API_KEY;
                 let comicURL = convertToHTTPS(comicLink);
+console.log('comicURL:' + comicURL);
                 await fetch(comicURL)
                     .then( (response) =>{
                         return response.json();
@@ -97,7 +98,7 @@ console.log('char ID:' + this._id);
 
     function showSearchResults() {
         let charName = inputName.value;
-console.log('Fetch Character by Id URL :' + GATEWAY_URL + '?' + paramName + charName + '&' + API_KEY);
+//console.log('Fetch Character by Id URL :' + GATEWAY_URL + '?' + paramName + charName + '&' + API_KEY);
         fetch(GATEWAY_URL + '?' + paramName + charName + '&' + API_KEY)
             .then( (response) =>{
                 return response.json();
