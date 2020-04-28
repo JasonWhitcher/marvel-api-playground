@@ -18,8 +18,6 @@ window.onload = () => {
             let comicData;
             let randomNumber;
             let comicURL;
-            let comicTitle;
-            let comicDescription;
             let comics = new Array;
             
             for (let count = 0; count < 3; count++) {
@@ -31,13 +29,10 @@ window.onload = () => {
                     })
                     .then( (data) => {
                         comicData = data.data.results[0];
-                        comicURL = convertToHTTPS(comicData.thumbnail.path + '.' + comicData.thumbnail.extension);
-                        //comicTitle = comicData.title != null ? comicData.title : 'No title available';
-                        //comicDescription = comicData.description != null ? comicData.description : 'No description available';
                         comics[count] = {
-                            title:          comicData.title != null ? comicData.title : 'No title available',
-                            description:    comicData.description != null ? comicData.description : 'No description available',
-                            url:            comicURL
+                            title:       comicData.title != null ? comicData.title : 'No title available',
+                            description: comicData.description != null ? comicData.description : 'No description available',
+                            url:         convertToHTTPS(comicData.thumbnail.path + '.' + comicData.thumbnail.extension)
                         };
                 })
                 .catch( (error) => {
@@ -95,21 +90,21 @@ window.onload = () => {
 
     function showSearchResults() {
         let charName = inputName.value;
+        let characterURL = `${GATEWAY_URL}?name=${charName}&${API_KEY}`;
 //console.log('Fetch Character by Id URL :' + GATEWAY_URL + '?' + paramName + charName + '&' + API_KEY);
-        fetch(GATEWAY_URL + '?' + paramName + charName + '&' + API_KEY)
+        //fetch(GATEWAY_URL + '?' + paramName + charName + '&' + API_KEY)
+        fetch(characterURL)
             .then( (response) =>{
                 return response.json();
             })
             .then( (data) => {
                 characterObject = data.data.results[0];
                 character = new ComicCharacter(characterObject);
-console.log('characterClass:');
-console.log(character);
-//console.log('character data:');
-//console.log(data);
-                /*for (property in character) {
+//console.log('characterClass:');
+//console.log(character);
+                for (property in character) {
                     console.log(`${property}: ${character[property]}`);
-                }*/
+                }
                 //updateDisplay(characterObject);
             })
             .catch( (error) => {
