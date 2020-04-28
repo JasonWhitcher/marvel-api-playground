@@ -13,7 +13,7 @@ window.onload = () => {
         @param  characterObject {object}
         @return comicCovers     {array}     Array of objects. Objects contain comic cover: title, description, url.
         */
-        async getRandomComicCovers(characterObject) {
+        getRandomComicCovers(characterObject) {
             let totalComics = characterObject.comics.available;
 console.log('availabel comics:' + totalComics);
             let randomNumber = undefined;
