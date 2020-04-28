@@ -2,8 +2,8 @@ window.onload = () => {
     class ComicCharacter {
         constructor(characterObject) {
             this._name = characterObject.name;
-            this._description = 'test description';//characterObject.description;
-            this._characterImage = 'test image';//convertToHTTPS(characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension); // url?
+            this._description = characterObject.description;
+            this._characterImage = convertToHTTPS(characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension); // url?
             this._comicCovers = this.getRandomComicCovers(characterObject); // Array of arrays of comic information(title, description, image).
             
         }
@@ -21,7 +21,7 @@ window.onload = () => {
             
             for (let count = 0; count < 3; count++) {
                 let randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
-                let comicLink = 'https://gateway.marvel.com:443/v1/public/characters/1009297/comics?limit=1&offset=' + randomNumber + '&' + apiKey;
+                let comicLink = GATEWAY_URL + '/1009297/comics?limit=1&offset=' + randomNumber + '&' + API_KEY;
                 let comicURL = convertToHTTPS(comicLink);
                 await fetch(comicURL)
                     .then( (response) =>{
@@ -47,8 +47,8 @@ window.onload = () => {
         }
     }
     
-    let url = 'https://gateway.marvel.com/v1/public/characters';
-    let apiKey = 'apikey=b703ebcf36f7b7bdb42b10f2dd8f1b39';
+    const GATEWAY_URL = 'https://gateway.marvel.com/v1/public/characters';
+    const API_KEY = 'apikey=b703ebcf36f7b7bdb42b10f2dd8f1b39';
     let paramNameStartsWith = 'nameStartsWith=';
     let paramName = 'name=';
     let paramLimitNumber = 'limit=' + 5;
@@ -71,7 +71,7 @@ window.onload = () => {
     function showSearchSuggestions() {
         let chrName = inputName.value;
         if (chrName.length > 0) { // Make sure the input field is not empty.
-            fetch(url + '?' + paramNameStartsWith + chrName + '&' + paramLimitNumber + '&' + apiKey)
+            fetch(GATEWAY_URL + '?' + paramNameStartsWith + chrName + '&' + paramLimitNumber + '&' + API_KEY)
                 .then( (response) => {
                     return response.json();
                 })
@@ -95,8 +95,8 @@ window.onload = () => {
     function showSearchResults() {
         
         let charName = inputName.value;
-console.log('Fetch Character by Id URL :' + url + '?' + paramName + charName + '&' + apiKey);
-        fetch(url + '?' + paramName + charName + '&' + apiKey)
+console.log('Fetch Character by Id URL :' + GATEWAY_URL + '?' + paramName + charName + '&' + API_KEY);
+        fetch(GATEWAY_URL + '?' + paramName + charName + '&' + API_KEY)
             .then( (response) =>{
                 return response.json();
             })
