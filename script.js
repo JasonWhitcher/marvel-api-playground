@@ -1,7 +1,7 @@
 window.onload = () => {
     class ComicCharacter {
         constructor(characterObject) {
-            this.id = characterObject.id;
+            this._id = characterObject.id;
             this._name = characterObject.name;
             this._description = characterObject.description;
             this._characterImage = convertToHTTPS(characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension); // url?
@@ -23,7 +23,8 @@ console.log('availabel comics:' + totalComics);
             
             for (let count = 0; count < 3; count++) {
                 let randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
-                let comicLink = GATEWAY_URL + '/' + this.id + '/comics?limit=1&offset=' + randomNumber + '&' + API_KEY;
+console.log('char ID:' + this._id);
+                let comicLink = GATEWAY_URL + '/' + this._id + '/comics?limit=1&offset=' + randomNumber + '&' + API_KEY;
                 let comicURL = convertToHTTPS(comicLink);
                 await fetch(comicURL)
                     .then( (response) =>{
