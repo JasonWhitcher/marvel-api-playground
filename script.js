@@ -5,6 +5,7 @@ window.onload = () => {
             this.name = characterObject.name;
             this.description = characterObject.description;
             this.characterImage = convertToHTTPS(characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension); // url?
+            this.comicCovers.length = 0;
             this.comicCovers = this.getRandomComicCovers(characterObject); // Array of arrays of comic information(title, description, image).
         }
         
@@ -99,16 +100,14 @@ window.onload = () => {
 console.log('characterClass-01:');
 console.log(character);
                 // Wait for all resources from the ComicCharacter Class to load.                
-                let waitForResoursedToLoad = setInterval(() => {
-//console.log('ARRAY LENGHT1:' + character.comics.length);
-console.log('ARRAY LENGHT2:' + Object.keys(character.comics).length);
+                /*let waitForResoursedToLoad = setInterval(() => {
                     if (character.comics.length > 0) {
                         clearInterval(waitForResoursedToLoad);
 console.log('characterClass-02:');
 console.log(character);
                         //updateDisplay(character);
                     }
-                }, 500);
+                }, 500);*/
 
             })
             .catch( (error) => {
