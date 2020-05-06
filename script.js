@@ -1,12 +1,11 @@
 window.onload = () => {
     class ComicCharacter {
         constructor(characterObject) {
-            this._id = characterObject.id;
-            this._name = characterObject.name;
-            this._description = characterObject.description;
-            this._characterImage = convertToHTTPS(characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension); // url?
-            this._comicCovers = this.getRandomComicCovers(characterObject); // Array of arrays of comic information(title, description, image).
-            
+            this.id = characterObject.id;
+            this.name = characterObject.name;
+            this.description = characterObject.description;
+            this.characterImage = convertToHTTPS(characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension); // url?
+            this.comicCovers = this.getRandomComicCovers(characterObject); // Array of arrays of comic information(title, description, image).
         }
         
         /*
@@ -19,10 +18,11 @@ window.onload = () => {
             let randomNumber;
             let comicURL;
             let comics = new Array;
+                comics.length = 0;
             
             for (let count = 0; count < 3; count++) {
                 randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
-                comicURL = convertToHTTPS(`${GATEWAY_URL}/${this._id}/comics?limit=1&offset=${randomNumber}&${API_KEY}`);
+                comicURL = convertToHTTPS(`${GATEWAY_URL}/${this.id}/comics?limit=1&offset=${randomNumber}&${API_KEY}`);
                 fetch(comicURL)
                     .then( (response) =>{
                         return response.json();
@@ -34,19 +34,17 @@ window.onload = () => {
                             description: comicData.description != null ? comicData.description : 'No description available',
                             url:         convertToHTTPS(comicData.thumbnail.path + '.' + comicData.thumbnail.extension)
                         };
-                })
-                .catch( (error) => {
-                    console.log('Fetch comic error:' + error);
-                });
+                        return comics;
+                    })
+                    .catch( (error) => {
+                        console.log('Fetch comic error:' + error);
+                    });
             }
-            return comics;
         }
     }
     
     const GATEWAY_URL = 'https://gateway.marvel.com/v1/public/characters';
     const API_KEY = 'apikey=b703ebcf36f7b7bdb42b10f2dd8f1b39';
-    let paramNameStartsWith = 'nameStartsWith=';
-    let paramName = 'name=';
     let paramLimitNumber = 'limit=' + 5;
     
     let inputName = document.getElementById('char-name');
@@ -67,7 +65,7 @@ window.onload = () => {
     function showSearchSuggestions() {
         let chrName = inputName.value;
         if (chrName.length > 0) { // Make sure the input field is not empty.
-            fetch(GATEWAY_URL + '?' + paramNameStartsWith + chrName + '&' + paramLimitNumber + '&' + API_KEY)
+            fetch(`${GATEWAY_URL}?nameStartsWith=${charName}&${paramLimitNumber}&${API_KEY}`)
                 .then( (response) => {
                     return response.json();
                 })
@@ -91,21 +89,24 @@ window.onload = () => {
     function showSearchResults() {
         let charName = inputName.value;
         let characterURL = `${GATEWAY_URL}?name=${charName}&${API_KEY}`;
-//console.log('Fetch Character by Id URL :' + GATEWAY_URL + '?' + paramName + charName + '&' + API_KEY);
-        //fetch(GATEWAY_URL + '?' + paramName + charName + '&' + API_KEY)
         fetch(characterURL)
-            .then( (response) =>{
+            .then( (response) => {
                 return response.json();
             })
             .then( (data) => {
                 characterObject = data.data.results[0];
-                character = new ComicCharacter(characterObject);
-console.log('characterClass:');
+                let character = new ComicCharacter(characterObject);
+console.log('characterClass-01:');
 console.log(character);
-                for (property in character) {
-                    console.log(`${property}: ${character[property]}`);
-                }
-                //updateDisplay(characterObject);
+                // Wait for all resources from the ComicCharacter Class to load.                
+                let waitForResoursedToLoad = setInterval(() => {
+                    if (character.comics.length > 0) {
+                        clearInterval(waitForResoursedToLoad);
+                        //updateDisplay(character);
+                    }
+                }, 500);
+console.log('characterClass-02:');
+console.log(character);
             })
             .catch( (error) => {
                 console.log('Fetch Character by Id error:' + error);
