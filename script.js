@@ -63,9 +63,9 @@ window.onload = () => {
 
     // NEED TO TEST A FETCH ERROR HERE.
     function showSearchSuggestions() {
-        let chrName = inputName.value;
-        if (chrName.length > 0) { // Make sure the input field is not empty.
-            fetch(`${GATEWAY_URL}?nameStartsWith=${charName}&${paramLimitNumber}&${API_KEY}`)
+        let characterName = inputName.value;
+        if (characterName.length > 0) { // Make sure the input field is not empty.
+            fetch(`${GATEWAY_URL}?nameStartsWith=${characterName}&${paramLimitNumber}&${API_KEY}`)
                 .then( (response) => {
                     return response.json();
                 })
