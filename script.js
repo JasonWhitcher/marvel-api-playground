@@ -100,14 +100,14 @@ console.log('characterClass-01:');
 console.log(character);
                 // Wait for all resources from the ComicCharacter Class to load.                
                 let waitForResoursedToLoad = setInterval(() => {
-console.log('ARRAY LENGHT1:' + character.comics.length);
+//console.log('ARRAY LENGHT1:' + character.comics.length);
 console.log('ARRAY LENGHT2:' + Object.keys(character.comics).length);
-                    /*if (character.comics.length > 0) {
+                    if (character.comics.length > 0) {
                         clearInterval(waitForResoursedToLoad);
 console.log('characterClass-02:');
 console.log(character);
                         //updateDisplay(character);
-                    }*/
+                    }
                 }, 500);
 
             })
