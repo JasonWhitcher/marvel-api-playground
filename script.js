@@ -7,7 +7,8 @@ window.onload = () => {
             this.name = characterObject.name;
             this.description = characterObject.description;
             this.characterImage = convertToHTTPS(characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension); // url?
-            this.comicCovers = new Array;
+            //this.comicCovers = new Array;
+            this.comicCovers = [];
 console.log('ARRAY 01:' + this.comicCovers);
             this.comicCovers.length = 0;
 console.log('ARRAY 02:' + this.comicCovers);
