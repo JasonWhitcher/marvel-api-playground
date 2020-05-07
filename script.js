@@ -6,7 +6,7 @@ window.onload = () => {
             this.description = characterObject.description;
             this.characterImage = convertToHTTPS(characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension); // url?
             this.comicCovers = new Array;
-            this.comicCovers.length = 0;
+            //this.comicCovers.length = 0;
             this.comicCovers = this.getRandomComicCovers(characterObject); // Array of arrays of comic information(title, description, image).
         }
         
