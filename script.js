@@ -101,11 +101,12 @@ window.onload = () => {
 console.log('characterClass-01:');
 console.log(character);
                 // Wait for all resources from the ComicCharacter Class to load.                
-                let waitForResoursedToLoad = setInterval(() => {
+                let waitForResourseToLoad = setInterval(() => {
+console.log('character.comics' + character.comics);
                     if (character.comics != undefined) {
 console.log('characterClass-02:');
 console.log(character);
-                        clearInterval(waitForResoursedToLoad);
+                        clearInterval(waitForResourseToLoad);
                         //updateDisplay(character);
                     }
                 }, 500);
