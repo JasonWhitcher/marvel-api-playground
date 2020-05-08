@@ -10,7 +10,7 @@ window.onload = () => {
             //this.comicCovers = new Array;
             this.comicCovers = [];
 console.log('ARRAY 01:' + this.comicCovers);
-            this.comicCovers.length = 0;
+            //this.comicCovers.length = 0;
 console.log('ARRAY 02:' + this.comicCovers.length);
             this.comicCovers = this.getRandomComicCovers(characterObject); // Array of arrays of comic information(title, description, image).
         }
