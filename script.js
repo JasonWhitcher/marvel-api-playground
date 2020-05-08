@@ -20,8 +20,7 @@ window.onload = () => {
             let comicData;
             let randomNumber;
             let comicURL;
-            let comics = new Array;
-                comics.length = 0;
+            let comics = [];
             
             for (let count = 0; count < 3; count++) {
                 randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
