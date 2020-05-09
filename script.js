@@ -98,19 +98,11 @@ window.onload = () => {
             .then( (data) => {
                 characterObject = data.data.results[0];
                 let character = new ComicCharacter(characterObject);
-console.log('characterClass-01:');
+                return character;
+            })
+            .then( (character) => {
+console.log('character Object:');
 console.log(character);
-                // Wait for all resources from the ComicCharacter Class to load.                
-                let waitForResourseToLoad = setInterval(() => {
-console.log('character.comics' + character.comics);
-                    if (character.comics != undefined) {
-console.log('characterClass-02:');
-console.log(character);
-                        clearInterval(waitForResourseToLoad);
-                        //updateDisplay(character);
-                    }
-                }, 500);
-
             })
             .catch( (error) => {
                 console.log('Fetch Character by Id error:' + error);
