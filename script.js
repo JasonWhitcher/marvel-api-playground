@@ -98,10 +98,12 @@ window.onload = () => {
             .then( (data) => {
                 characterObject = data.data.results[0];
                 let character = new ComicCharacter(characterObject);
+console.log('character Object 01:');
+console.log(character);
                 return character;
             })
             .then( (character) => {
-console.log('character Object:');
+console.log('character Object 02:');
 console.log(character);
             })
             .catch( (error) => {
