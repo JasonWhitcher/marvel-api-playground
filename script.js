@@ -97,10 +97,14 @@ window.onload = () => {
             })
             .then( (data) => {
                 characterObject = data.data.results[0];
-                let character = new ComicCharacter(characterObject);
-console.log('character Object 01:');
-console.log(character);
-                return character;
+                return new Promise(function(resolve, reject) {
+                    let character = new ComicCharacter(characterObject);
+                    resolve(character);
+                })
+                //let character = new ComicCharacter(characterObject);
+//console.log('character Object 01:');
+//console.log(character);
+                //return character;
             })
             .then( (character) => {
 console.log('character Object 02:');
