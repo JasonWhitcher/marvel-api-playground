@@ -16,6 +16,7 @@ window.onload = () => {
         @return comicCovers     {array}     Array of objects. Objects contain comic cover: title, description, url.
         */
         getRandomComicCovers(characterObject) {
+console.log('Start: getRandomComicCovers()');
             let totalComics = characterObject.comics.available;
             let comicData;
             let randomNumber;
@@ -23,6 +24,7 @@ window.onload = () => {
             let comics = [];
             
             for (let count = 0; count < 3; count++) {
+console.log('Comic Image: ' + count);
                 randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
                 comicURL = convertToHTTPS(`${GATEWAY_URL}/${this.id}/comics?limit=1&offset=${randomNumber}&${API_KEY}`);
                 fetch(comicURL)
