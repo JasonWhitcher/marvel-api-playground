@@ -103,18 +103,14 @@ console.log(comics);
             })
             .then( (data) => {
                 characterObject = data.data.results[0];
-                /*return new Promise(function(resolve, reject) {
-                    let character = new ComicCharacter(characterObject);
-                    resolve(character);
-                })*/
                 let character = new ComicCharacter(characterObject);
-console.log('character Object 02:');
-console.log(character);
                 return character;
             })
             .catch( (error) => {
                 console.log('Fetch Character by Id error:' + error);
             });
+console.log('character Object 02:');
+console.log(character);
         return character;
     }
 
