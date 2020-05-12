@@ -40,6 +40,11 @@ console.log('Comic Image: ' + count);
                         };
                         return comics;
                     })
+                    .finally( (comics) => {
+console.log('comics:');
+console.log(comics);
+                        return comics;
+                    })
                     .catch( (error) => {
                         console.log('Fetch comic error:' + error);
                     });
