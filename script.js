@@ -103,6 +103,9 @@ console.log('Comic Image: ' + count);
                     let character = new ComicCharacter(characterObject);
                     resolve(character);
                 })
+                setTimeout(() => {
+                    return;
+                }, 5000);
                 //let character = new ComicCharacter(characterObject);
 //console.log('character Object 01:');
 //console.log(character);
