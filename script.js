@@ -38,9 +38,6 @@ console.log('Comic Image: ' + count);
                             description: comicData.description != null ? comicData.description : 'No description available',
                             url:         convertToHTTPS(comicData.thumbnail.path + '.' + comicData.thumbnail.extension)
                         };
-                        return comics;
-                    })
-                    .finally( (comics) => {
 console.log('comics:');
 console.log(comics);
                         return comics;
