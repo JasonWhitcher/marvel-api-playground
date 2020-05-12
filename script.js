@@ -58,14 +58,15 @@ console.log(comics);
     let datalistElement = document.getElementById('char-list');
     let inputSubmit = document.getElementById('char-submit');
 
-    let characterObject;
+    let characterObject; // Object recieved from Marvel API.
 
     inputName.addEventListener('input', (event) => {
         showSearchSuggestions();
     });
 
     inputSubmit.addEventListener('click', (event) => {
-        showSearchResults();
+        let character = getCharacter();
+        displayCharacter(character);
     });
 
     // NEED TO TEST A FETCH ERROR HERE.
@@ -93,7 +94,7 @@ console.log(comics);
         }
     }
 
-    function showSearchResults() {
+    function getCharacter() {
         let charName = inputName.value;
         let characterURL = `${GATEWAY_URL}?name=${charName}&${API_KEY}`;
         fetch(characterURL)
@@ -111,16 +112,17 @@ console.log('character Object 02:');
 console.log(character);
                 return character;
             })
-            .then( (character) => {
-console.log('character Object 03:');
-console.log(character);
-            })
             .catch( (error) => {
                 console.log('Fetch Character by Id error:' + error);
             });
+        return character;
     }
 
-    
+    displayCharacter(character) {
+        let characterNameContainer = document.getElementById('char-name-title');
+
+        characterNameContainer.innerText = character.name;
+    }
     
     function convertToHTTPS(originalURL) {
         let newURL = originalURL;
