@@ -118,7 +118,7 @@ console.log(character);
         return character;
     }
 
-    displayCharacter(character) {
+    function displayCharacter(character) {
         let characterNameContainer = document.getElementById('char-name-title');
 
         characterNameContainer.innerText = character.name;
