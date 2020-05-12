@@ -102,18 +102,14 @@ console.log(comics);
             })
             .then( (data) => {
                 characterObject = data.data.results[0];
-                return new Promise(function(resolve, reject) {
+                /*return new Promise(function(resolve, reject) {
                     let character = new ComicCharacter(characterObject);
                     resolve(character);
-                })
-                setTimeout(() => {
-console.log('character Object 01:');
-console.log(character);;
-                }, 5000);
-                //let character = new ComicCharacter(characterObject);
-//console.log('character Object 02:');
-//console.log(character);
-                //return character;
+                })*/
+                let character = new ComicCharacter(characterObject);
+console.log('character Object 02:');
+console.log(character);
+                return character;
             })
             .then( (character) => {
 console.log('character Object 03:');
