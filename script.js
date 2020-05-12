@@ -46,6 +46,7 @@ console.log(comics);
                         console.log('Fetch comic error:' + error);
                     });
             }
+            return comics;
         }
     }
     
