@@ -9,30 +9,30 @@
         <script src="script.js"></script>
     </head>
     <body>
-        <h6>"Data provided by Marvel. © 2014 Marvel"</h6>
+        <h6>"Data provided by Marvel. © 2020 Marvel"</h6>
 
         <form>
-            <input id="char-name" name="char-name" list="char-list" type="search" placeholder="Enter character name" />
-            <datalist id="char-list">
+            <input id="character-name" name="character-name" list="character-list" type="search" placeholder="Enter character name" />
+            <datalist id="character-list">
                 <option>Sample</option>
             </datalist>
-            <input id="char-submit" name="char-submit" value="get character" type="button" />
+            <input id="character-submit" name="character-submit" value="get character" type="button" />
         </form>
 
         <p id="error-message"></p>
 
-        <h3 id="char-name-title"></h3>
+        <h3 id="character-name-title"></h3>
 
-        <p id="char-description"></p>
+        <p id="character-description"></p>
 
-        <div id="char-image-container">
-            <img id="char-image" src="" alt="Image of selected character." />
+        <div id="character-image-container">
+            <img id="character-image" src="" alt="Image of selected character." />
         </div>
 
         <!--Three random comic covers.-->
-        <div id="char-random-comic-container">
-            <div id="char-comic-covers-container"></div>
-            <div id="char-comic-description-container">
+        <div id="character-random-comic-container">
+            <div id="character-comic-covers-container"></div>
+            <div id="character-comic-description-container">
                 <h4 id="comic-title"></h4>
                 <a class="close-button">X</a>
             </div>

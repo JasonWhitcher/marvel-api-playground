@@ -2,22 +2,22 @@
 
 window.onload = () => {
     class ComicCharacter {
-        constructor(characterObject) {
-            this.id = characterObject.id;
-            this.name = characterObject.name;
-            this.description = characterObject.description;
-            this.characterImage = convertToHTTPS(characterObject.thumbnail.path + '.' + characterObject.thumbnail.extension); // url?
+        constructor(characterObjectFromMarvel) {
+            this.id = characterObjectFromMarvel.id;
+            this.name = characterObjectFromMarvel.name;
+            this.description = characterObjectFromMarvel.description;
+            this.characterImage = convertToHTTPS(characterObjectFromMarvel.thumbnail.path + '.' + characterObjectFromMarvel.thumbnail.extension); // url?
             this.comicCovers = [];
-            this.comicCovers = this.getRandomComicCovers(characterObject); // Array of arrays of comic information(title, description, image).
+            this.comicCovers = this.getRandomComicCovers(characterObjectFromMarvel); // Array of arrays of comic information(title, description, image).
         }
         
         /*
-        @param  characterObject {object}
+        @param  characterObjectFromMarvel {object}
         @return comicCovers     {array}     Array of objects. Objects contain comic cover: title, description, url.
         */
-        getRandomComicCovers(characterObject) {
+        getRandomComicCovers(characterObjectFromMarvel) {
 console.log('Start: getRandomComicCovers()');
-            let totalComics = characterObject.comics.available;
+            let totalComics = characterObjectFromMarvel.comics.available;
             let comicData;
             let randomNumber;
             let comicURL;
@@ -58,15 +58,16 @@ console.log(comics);
     let datalistElement = document.getElementById('char-list');
     let inputSubmit = document.getElementById('char-submit');
 
-    let characterObject; // Object recieved from Marvel API.
+    let characterObjectFromMarvel; // Object recieved from Marvel API.
+    let characterObject; // Custom object created for this app.
 
     inputName.addEventListener('input', (event) => {
         showSearchSuggestions();
     });
 
     inputSubmit.addEventListener('click', (event) => {
-        let character = getCharacter();
-        displayCharacter(character);
+        characterObject = getCharacter();
+        displayCharacter(characterObject);
     });
 
     // NEED TO TEST A FETCH ERROR HERE.
@@ -102,22 +103,26 @@ console.log(comics);
                 return response.json();
             })
             .then( (data) => {
-                characterObject = data.data.results[0];
-                let character = new ComicCharacter(characterObject);
-                return character;
+                characterObjectFromMarvel = data.data.results[0];
+                characterObject = new ComicCharacter(characterObjectFromMarvel);
+                return characterObject;
             })
             .catch( (error) => {
                 console.log('Fetch Character by Id error:' + error);
             });
 console.log('character Object 02:');
-console.log(character);
-        return character;
+console.log(characterObject);
+        return characterObject;
     }
 
-    function displayCharacter(character) {
-        let characterNameContainer = document.getElementById('char-name-title');
+    function displayCharacter(characterObject) {
+        let characterNameContainer = document.getElementById('character-name-title');
+        let characterDescriptionContainer = document.getElementById('character-description');
+        let chatacterImageTag = document.getElementById('character-image');
 
-        characterNameContainer.innerText = character.name;
+        characterNameContainer.innerText = characterObject.name;
+        characterDescriptionContainer.innerText = characterObject.description;
+        chatacterImageTag.src = characterObject.characterImage;
     }
     
     function convertToHTTPS(originalURL) {
