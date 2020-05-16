@@ -54,9 +54,9 @@ console.log(comics);
     const API_KEY = 'apikey=b703ebcf36f7b7bdb42b10f2dd8f1b39';
     let paramLimitNumber = 'limit=' + 5;
     
-    let inputName = document.getElementById('char-name');
-    let datalistElement = document.getElementById('char-list');
-    let inputSubmit = document.getElementById('char-submit');
+    let inputName = document.getElementById('character-name');
+    let datalistElement = document.getElementById('character-list');
+    let inputSubmit = document.getElementById('character-submit');
 
     let characterObjectFromMarvel; // Object recieved from Marvel API.
     let characterObject; // Custom object created for this app.
