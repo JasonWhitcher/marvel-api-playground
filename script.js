@@ -104,6 +104,8 @@ console.log('Input name: ' + characterName);
                 return response.json();
             })
             .then( (data) => {
+console.log('character Object 01:');
+console.log(data);
                 characterObjectFromMarvel = data.data.results[0];
                 characterObject = new ComicCharacter(characterObjectFromMarvel);
                 return characterObject;
