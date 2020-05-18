@@ -114,6 +114,9 @@ console.log('character Object 03:');
 console.log(characterObject);
                 return characterObject;
             })
+            .then( (characterObject) => {
+                displayCharacter(characterObject);
+            })
             .catch( (error) => {
                 console.log('Fetch Character by Id error:' + error);
             });
