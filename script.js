@@ -96,8 +96,9 @@ console.log(comics);
     }
 
     function getCharacter() {
-        let charName = inputName.value;
-        let characterURL = `${GATEWAY_URL}?name=${charName}&${API_KEY}`;
+        let characterName = inputName.value;
+console.log('Input name: ' + characterName);
+        let characterURL = `${GATEWAY_URL}?name=${characterName}&${API_KEY}`;
         fetch(characterURL)
             .then( (response) => {
                 return response.json();
