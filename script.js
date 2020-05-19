@@ -114,6 +114,7 @@ console.log('Input name: ' + characterName);
                 return characterObject;
             })
             .then( (characterObject) => {
+console.log('CALL displayCharacter');
                 displayCharacter(characterObject);
             })
             .catch( (error) => {
@@ -122,6 +123,7 @@ console.log('Input name: ' + characterName);
     }
 
     function displayCharacter(characterObject) {
+console.log('START displayCharacter');
         let characterNameContainer = document.getElementById('character-name-title');
         let characterDescriptionContainer = document.getElementById('character-description');
         let chatacterImageTag = document.getElementById('character-image');
