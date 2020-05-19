@@ -126,14 +126,16 @@ console.log('Input name: ' + characterName);
         let characterDescriptionContainer = document.getElementById('character-description');
         let chatacterImageTag = document.getElementById('character-image');
         let randomComicsContainer = document.getElementById('character-random-comics-container');
+        let comicContainer = '';
+        let comicImage = '';
 
         characterNameContainer.innerText = characterObject.name;
         characterDescriptionContainer.innerText = characterObject.description;
         chatacterImageTag.src = characterObject.characterImage;
 
         for (comicCounter = 0; comicCounter < 3; comicCounter++) {
-            let comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
-            let comicImage = comicContainer.getElementsByTagName('img');
+            comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
+            comicImage = comicContainer.getElementsByTagName('img');
 console.log('IMG:' + characterObject.comics[comicCounter]);
             comicImage.src = characterObject.comics[comicCounter];
         }
