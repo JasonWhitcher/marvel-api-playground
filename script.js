@@ -103,14 +103,14 @@ console.log('Input name: ' + characterName);
                 return response.json();
             })
             .then( (data) => {
-console.log('character Object 01:');
-console.log(data);
+//console.log('character Object 01:');
+//console.log(data);
                 characterObjectFromMarvel = data.data.results[0];
-console.log('character Object 02:');
-console.log(characterObjectFromMarvel);
+//console.log('character Object 02:');
+//console.log(characterObjectFromMarvel);
                 characterObject = new ComicCharacter(characterObjectFromMarvel);
-console.log('character Object 03:');
-console.log(characterObject);
+//console.log('character Object 03:');
+//console.log(characterObject);
                 return characterObject;
             })
             .then( (characterObject) => {
@@ -134,6 +134,7 @@ console.log(characterObject);
         for (comicCounter = 0; comicCounter < 3; comicCounter++) {
             let comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
             let comicImage = comicContainer.getElementsByTagName('img');
+console.log('IMG:' + characterObject.comics[comicCounter]);
             comicImage.src = characterObject.comics[comicCounter];
         }
     }
