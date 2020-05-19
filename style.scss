@@ -3,18 +3,18 @@ body {
     max-width: 960px;
     max-height: 2000px;
 }
-#char-image-container {
+#character-image-container {
     width: 200px;
     height: 200px;
-    #char-image {
+    #character-image {
         width: inherit;
         height: inherit;
         object-fit: contain;
     }
 }
-#char-random-comic-container {
+#character-random-comic-container {
     position: relative;;
-    #char-comic-covers-container {
+    #character-comic-covers-container {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -32,7 +32,7 @@ body {
             }
         }
     }
-    #char-comic-description-container {
+    #character-comic-description-container {
         border: 2px solid green;
         border-radius: 7px;
         width: 600px;

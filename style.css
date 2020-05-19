@@ -4,19 +4,23 @@ body {
   max-height: 2000px;
 }
 
-#char-image-container {
+#character-image-container {
   width: 200px;
   height: 200px;
 }
 
-#char-image-container #char-image {
+#character-image-container #character-image {
   width: inherit;
   height: inherit;
   -o-object-fit: contain;
      object-fit: contain;
 }
 
-#char-comic-covers-container {
+#character-random-comic-container {
+  position: relative;
+}
+
+#character-random-comic-container #character-comic-covers-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -31,7 +35,7 @@ body {
           justify-content: right;
 }
 
-#char-comic-covers-container .comic-container {
+#character-random-comic-container #character-comic-covers-container .comic-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -45,9 +49,42 @@ body {
   max-width: 450px;
 }
 
-#char-comic-covers-container .comic-container img {
+#character-random-comic-container #character-comic-covers-container .comic-container img {
   width: inherit;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+#character-random-comic-container #character-comic-description-container {
+  border: 2px solid green;
+  border-radius: 7px;
+  width: 600px;
+  position: relative;
+  top: 0px;
+  left: -600px;
+}
+
+@-webkit-keyframes slide-in {
+  0% {
+    left: 0px;
+  }
+  90% {
+    left: 500px;
+  }
+  100% {
+    left: 600px;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    left: 0px;
+  }
+  90% {
+    left: 500px;
+  }
+  100% {
+    left: 600px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

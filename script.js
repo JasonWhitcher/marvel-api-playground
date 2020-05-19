@@ -67,7 +67,6 @@ console.log(comics);
 
     inputSubmit.addEventListener('click', (event) => {
         characterObject = getCharacter();
-        displayCharacter(characterObject);
     });
 
     // NEED TO TEST A FETCH ERROR HERE.
@@ -120,19 +119,23 @@ console.log(characterObject);
             .catch( (error) => {
                 console.log('Fetch Character by Id error:' + error);
             });
-console.log('character Object 04:');
-console.log(characterObject);
-        return characterObject;
     }
 
     function displayCharacter(characterObject) {
         let characterNameContainer = document.getElementById('character-name-title');
         let characterDescriptionContainer = document.getElementById('character-description');
         let chatacterImageTag = document.getElementById('character-image');
+        let randomComicsContainer = document.getElementById('character-random-comics-container');
 
         characterNameContainer.innerText = characterObject.name;
         characterDescriptionContainer.innerText = characterObject.description;
         chatacterImageTag.src = characterObject.characterImage;
+
+        for (comicCounter = 0; comicCounter < 3; comicCounter++) {
+            let comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
+            let comicImage = comicContainer.getElementsByTagName('img');
+            comicImage.src = characterObject.comics[comicCounter];
+        }
     }
     
     function convertToHTTPS(originalURL) {
