@@ -134,13 +134,15 @@ console.log('START displayCharacter');
         characterNameContainer.innerText = characterObject.name;
         characterDescriptionContainer.innerText = characterObject.description;
         chatacterImageTag.src = characterObject.characterImage;
-
-        for (let comicCounter = 0; comicCounter < 3; comicCounter++) {
-            //comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
-            //comicImage = comicContainer.getElementsByTagName('img');
+        setTimeout( () => {
+            for (let comicCounter = 0; comicCounter < 3; comicCounter++) {
+                //comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
+                //comicImage = comicContainer.getElementsByTagName('img');
 console.log('IMG:' + characterObject.comics[comicCounter]);
-            //comicImage.src = characterObject.comics[comicCounter];
-        }
+                //comicImage.src = characterObject.comics[comicCounter];
+            }
+        }, 5000);
+        
     }
     
     function convertToHTTPS(originalURL) {
