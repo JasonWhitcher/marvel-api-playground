@@ -136,15 +136,12 @@ console.log(characterObject);
         characterNameContainer.innerText = characterObject.name;
         characterDescriptionContainer.innerText = characterObject.description;
         chatacterImageTag.src = characterObject.characterImage;
-        setTimeout( () => {
-            for (let comicCounter = 0; comicCounter < 3; comicCounter++) {
-console.log('comicCounter:' + comicCounter);
-                //comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
-                //comicImage = comicContainer.getElementsByTagName('img');
-//console.log('IMG:' + characterObject.comics[comicCounter].url);
-                //comicImage.src = characterObject.comics[comicCounter];
-            }
-        }, 5000);
+        for (let comicCounter = 0; comicCounter < 3; comicCounter++) {
+            comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
+            comicImage = comicContainer.getElementsByTagName('img');
+console.log('IMG:' + characterObject.comicCovers[comicCounter].url);
+            comicImage.src = characterObject.comics[comicCounter];
+        }
         
     }
     
