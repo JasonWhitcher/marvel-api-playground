@@ -137,7 +137,8 @@ console.log(characterObject.comicCovers);
         characterDescriptionContainer.innerText = characterObject.description;
         chatacterImageTag.src = characterObject.characterImage;
         for (let comicCounter = 0; comicCounter < 3; comicCounter++) {
-console.log('comicCounter:' + comicCounter);
+console.log('comicCover:');
+console.log(characterObject.comicCovers[comicCounter]);
             //comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
             //comicImage = comicContainer.getElementsByTagName('img');
 //console.log('IMG-' + comicCounter + ':' + characterObject.comicCovers[comicCounter].url);
