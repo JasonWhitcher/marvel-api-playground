@@ -109,8 +109,8 @@ console.log('Input name: ' + characterName);
 //console.log('character Object 02:');
 //console.log(characterObjectFromMarvel);
                 characterObject = new ComicCharacter(characterObjectFromMarvel);
-//console.log('character Object 03:');
-//console.log(characterObject);
+console.log('character Object 03:');
+console.log(characterObject);
                 return characterObject;
             })
             .then( (characterObject) => {
