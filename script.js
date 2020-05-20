@@ -125,7 +125,7 @@ console.log('CALL displayCharacter');
     function displayCharacter(characterObject) {
 console.log('START displayCharacter');
 console.log('character Object 04:');
-console.log(characterObject);
+console.log(characterObject.comicCovers);
         let characterNameContainer = document.getElementById('character-name-title');
         let characterDescriptionContainer = document.getElementById('character-description');
         let chatacterImageTag = document.getElementById('character-image');
@@ -140,7 +140,7 @@ console.log(characterObject);
 console.log('comicCounter:' + comicCounter);
             //comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
             //comicImage = comicContainer.getElementsByTagName('img');
-console.log('IMG-' + comicCounter + ':' + characterObject.comicCovers[comicCounter].url);
+//console.log('IMG-' + comicCounter + ':' + characterObject.comicCovers[comicCounter].url);
             //comicImage.src = characterObject.comics[comicCounter];
         }
         
