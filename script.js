@@ -124,6 +124,8 @@ console.log('CALL displayCharacter');
 
     function displayCharacter(characterObject) {
 console.log('START displayCharacter');
+console.log('character Object 04:');
+console.log(characterObject);
         let characterNameContainer = document.getElementById('character-name-title');
         let characterDescriptionContainer = document.getElementById('character-description');
         let chatacterImageTag = document.getElementById('character-image');
