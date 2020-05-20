@@ -115,7 +115,7 @@ console.log('Input name: ' + characterName);
             })
             .then( (characterObject) => {
 console.log('CALL displayCharacter');
-                displayCharacter(characterObject);
+                //displayCharacter(characterObject);
             })
             .catch( (error) => {
                 console.log('Fetch Character by Id error:' + error);
@@ -138,7 +138,7 @@ console.log('START displayCharacter');
             for (let comicCounter = 0; comicCounter < 3; comicCounter++) {
                 //comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
                 //comicImage = comicContainer.getElementsByTagName('img');
-console.log('IMG:' + characterObject.comics[comicCounter]);
+console.log('IMG:' + characterObject.comics[comicCounter].url);
                 //comicImage.src = characterObject.comics[comicCounter];
             }
         }, 5000);
