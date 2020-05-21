@@ -15,7 +15,7 @@ window.onload = () => {
         @param  characterObjectFromMarvel {object}
         @return comicCovers     {array}     Array of objects. Objects contain comic cover: title, description, url.
         */
-        getRandomComicCovers(characterObjectFromMarvel) {
+        async getRandomComicCovers(characterObjectFromMarvel) {
 console.log('Start: getRandomComicCovers()');
             let totalComics = characterObjectFromMarvel.comics.available;
             let comicData;
@@ -27,7 +27,7 @@ console.log('Start: getRandomComicCovers()');
 //console.log('Comic Image: ' + count);
                 randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
                 comicURL = convertToHTTPS(`${GATEWAY_URL}/${this.id}/comics?limit=1&offset=${randomNumber}&${API_KEY}`);
-                fetch(comicURL)
+                await fetch(comicURL)
                     .then( (response) =>{
                         return response.json();
                     })
@@ -108,10 +108,7 @@ console.log('Input name: ' + characterName);
                 characterObjectFromMarvel = data.data.results[0];
 //console.log('character Object 02:');
 //console.log(characterObjectFromMarvel);
-                setTimeout( () => {
-                    characterObject = new ComicCharacter(characterObjectFromMarvel);
-                },2000);
-                
+                characterObject = new ComicCharacter(characterObjectFromMarvel);
 console.log('character Object 03:');
 console.log(characterObject);
                 return characterObject;
