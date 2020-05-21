@@ -24,7 +24,7 @@ console.log('Start: getRandomComicCovers()');
             let comics = [];
             
             for (let count = 0; count < 3; count++) {
-console.log('Comic Image: ' + count);
+//console.log('Comic Image: ' + count);
                 randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
                 comicURL = convertToHTTPS(`${GATEWAY_URL}/${this.id}/comics?limit=1&offset=${randomNumber}&${API_KEY}`);
                 fetch(comicURL)
@@ -38,8 +38,8 @@ console.log('Comic Image: ' + count);
                             description: comicData.description != null ? comicData.description : 'No description available',
                             url:         convertToHTTPS(comicData.thumbnail.path + '.' + comicData.thumbnail.extension)
                         };
-console.log('comics:');
-console.log(comics);
+//console.log('comics:');
+//console.log(comics);
                         return comics;
                     })
                     .catch( (error) => {
@@ -137,7 +137,7 @@ console.log(characterObject.comicCovers);
         characterDescriptionContainer.innerText = characterObject.description;
         chatacterImageTag.src = characterObject.characterImage;
         for (let comicCounter = 0; comicCounter < 3; comicCounter++) {
-console.log('comicCover:');
+console.log('comicCover:' + comicCounter);
 console.log(characterObject.comicCovers[comicCounter]);
             //comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
             //comicImage = comicContainer.getElementsByTagName('img');
