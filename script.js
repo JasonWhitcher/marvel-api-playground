@@ -126,8 +126,11 @@ console.log('CALL displayCharacter');
 console.log('START displayCharacter');
 console.log('character Object 04:');
 console.log(characterObject.comicCovers);
-console.log('COVER 0:');
-console.log(characterObject.comicCovers[0]);
+setTimeout( () => {
+    console.log('COVER 0:');
+    console.log(characterObject.comicCovers[0]);
+}, 5000);
+
         let characterNameContainer = document.getElementById('character-name-title');
         let characterDescriptionContainer = document.getElementById('character-description');
         let chatacterImageTag = document.getElementById('character-image');
