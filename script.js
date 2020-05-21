@@ -38,8 +38,8 @@ console.log('Start: getRandomComicCovers()');
                             description: comicData.description != null ? comicData.description : 'No description available',
                             url:         convertToHTTPS(comicData.thumbnail.path + '.' + comicData.thumbnail.extension)
                         };
-//console.log('comics:');
-//console.log(comics);
+console.log('comics:');
+console.log(comics);
                         return comics;
                     })
                     .catch( (error) => {
