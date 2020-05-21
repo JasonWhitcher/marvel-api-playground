@@ -108,14 +108,17 @@ console.log('Input name: ' + characterName);
                 characterObjectFromMarvel = data.data.results[0];
 //console.log('character Object 02:');
 //console.log(characterObjectFromMarvel);
-                characterObject = new ComicCharacter(characterObjectFromMarvel);
+                setTimeout( () => {
+                    characterObject = new ComicCharacter(characterObjectFromMarvel);
+                },2000);
+                
 console.log('character Object 03:');
 console.log(characterObject);
                 return characterObject;
             })
             .then( (characterObject) => {
 console.log('CALL displayCharacter');
-                displayCharacter(characterObject);
+                //displayCharacter(characterObject);
             })
             .catch( (error) => {
                 console.log('Fetch Character by Id error:' + error);
