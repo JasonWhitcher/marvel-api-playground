@@ -7,15 +7,15 @@ window.onload = () => {
             this.name = characterObjectFromMarvel.name;
             this.description = characterObjectFromMarvel.description;
             this.characterImage = convertToHTTPS(characterObjectFromMarvel.thumbnail.path + '.' + characterObjectFromMarvel.thumbnail.extension); // url?
-            this.comicCovers = [];
-            this.comicCovers = this.getRandomComicCovers(characterObjectFromMarvel); // Array of arrays of comic information(title, description, image).
+            //this.comicCovers = [];
+            //this.comicCovers = this.getRandomComicCovers(characterObjectFromMarvel); // Array of arrays of comic information(title, description, image).
         }
         
         /*
         @param  characterObjectFromMarvel {object}
         @return comicCovers     {array}     Array of objects. Objects contain comic cover: title, description, url.
         */
-        async getRandomComicCovers(characterObjectFromMarvel) {
+        getRandomComicCovers() {
 console.log('Start: getRandomComicCovers()');
             let totalComics = characterObjectFromMarvel.comics.available;
             let comicData;
@@ -27,7 +27,7 @@ console.log('Start: getRandomComicCovers()');
 //console.log('Comic Image: ' + count);
                 randomNumber = getRandomInteger(1, totalComics) - 1; // -1 to change the number to the array index.
                 comicURL = convertToHTTPS(`${GATEWAY_URL}/${this.id}/comics?limit=1&offset=${randomNumber}&${API_KEY}`);
-                await fetch(comicURL)
+                fetch(comicURL)
                     .then( (response) =>{
                         return response.json();
                     })
@@ -94,11 +94,11 @@ console.log(comics);
         }
     }
 
-    async function getCharacter() {
+    function getCharacter() {
         let characterName = inputName.value;
 console.log('Input name: ' + characterName);
         let characterURL = `${GATEWAY_URL}?name=${characterName}&${API_KEY}`;
-        await fetch(characterURL)
+        fetch(characterURL)
             .then( (response) => {
                 return response.json();
             })
@@ -115,7 +115,7 @@ console.log(characterObject);
             })
             .then( (characterObject) => {
 console.log('CALL displayCharacter');
-                //displayCharacter(characterObject);
+                displayCharacter(characterObject);
             })
             .catch( (error) => {
                 console.log('Fetch Character by Id error:' + error);
@@ -126,24 +126,23 @@ console.log('CALL displayCharacter');
 console.log('START displayCharacter');
 console.log('character Object 04:');
 console.log(characterObject.comicCovers);
-setTimeout( () => {
-    console.log('COVER 0:');
-    console.log(characterObject.comicCovers[0]);
-}, 5000);
 
         let characterNameContainer = document.getElementById('character-name-title');
         let characterDescriptionContainer = document.getElementById('character-description');
         let chatacterImageTag = document.getElementById('character-image');
         let randomComicsContainer = document.getElementById('character-random-comics-container');
+        let comicCovers;
         let comicContainer;
         let comicImage;
 
         characterNameContainer.innerText = characterObject.name;
         characterDescriptionContainer.innerText = characterObject.description;
         chatacterImageTag.src = characterObject.characterImage;
+        comicCovers = characterObject.getRandomComicCovers();
+console.log('comicCovers:' + comicCovers);
         for (let comicCounter = 0; comicCounter < 3; comicCounter++) {
-console.log('comicCover:' + comicCounter);
-console.log(characterObject.comicCovers[comicCounter]);
+            
+            console.log('comicCover:' + comicCounter);
             //comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
             //comicImage = comicContainer.getElementsByTagName('img');
 //console.log('IMG-' + comicCounter + ':' + characterObject.comicCovers[comicCounter].url);
