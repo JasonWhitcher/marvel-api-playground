@@ -94,11 +94,11 @@ console.log(comics);
         }
     }
 
-    function getCharacter() {
+    async function getCharacter() {
         let characterName = inputName.value;
 console.log('Input name: ' + characterName);
         let characterURL = `${GATEWAY_URL}?name=${characterName}&${API_KEY}`;
-        fetch(characterURL)
+        await fetch(characterURL)
             .then( (response) => {
                 return response.json();
             })
