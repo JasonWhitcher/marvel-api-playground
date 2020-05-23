@@ -15,7 +15,7 @@ window.onload = () => {
         @param  void
         @return comics     {array}     Array of objects. Objects contain comic cover: title, description, url.
         */
-        async displayRandomComicCovers() {
+        async getRandomComicCovers() {
 console.log('Start: getRandomComicCovers()');
             let totalComics = characterObjectFromMarvel.comics.available;
             let comicData;
@@ -40,14 +40,14 @@ console.log('Start: getRandomComicCovers()');
                         };
 console.log('comics:');
 console.log(comics);
-                        return comics;
+                        //return comics;
                     })
                     .catch( (error) => {
                         console.log('Fetch comic error:' + error);
                     });
             }
-            return comics;
-
+console.log('comics:');
+console.log(comics);
             let randomComicsContainer = document.getElementById('character-random-comics-container');
                         let comicCovers;
                         let comicContainer;
@@ -61,6 +61,10 @@ console.log(comics);
                 //console.log('IMG-' + comicCounter + ':' + characterObject.comicCovers[comicCounter].url);
                             //comicImage.src = characterObject.comics[comicCounter];
                         }
+        }
+
+        displayRandomComicCovers() {
+
         }
     }
     
