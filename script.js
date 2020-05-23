@@ -15,7 +15,7 @@ window.onload = () => {
         @param  void
         @return comics     {array}     Array of objects. Objects contain comic cover: title, description, url.
         */
-        async getRandomComicCovers() {
+        async displayRandomComicCovers() {
 console.log('Start: getRandomComicCovers()');
             let totalComics = characterObjectFromMarvel.comics.available;
             let comicData;
@@ -45,7 +45,7 @@ console.log(comics);
                     .catch( (error) => {
                         console.log('Fetch comic error:' + error);
                     });
-            }
+            } // end for
 console.log('comics:');
 console.log(comics);
             let randomComicsContainer = document.getElementById('character-random-comics-container');
@@ -61,11 +61,8 @@ console.log(comics);
                 //console.log('IMG-' + comicCounter + ':' + characterObject.comicCovers[comicCounter].url);
                             //comicImage.src = characterObject.comics[comicCounter];
                         }
-        }
+        } // end getRandomComicCovers()
 
-        displayRandomComicCovers() {
-
-        }
     }
     
     const GATEWAY_URL = 'https://gateway.marvel.com/v1/public/characters';
