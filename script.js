@@ -53,10 +53,10 @@ console.log(comics);
             
             for (let comicCounter = 0; comicCounter < 3; comicCounter++) {
 console.log('comicCover:' + comicCounter);
-                //comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
-                //comicImage = comicContainer.getElementsByTagName('img');
+                comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
+                comicImage = comicContainer.getElementsByTagName('img');
 console.log('IMG-' + comicCounter + ':' + comics[comicCounter].url);
-                //comicImage.src = characterObject.comics[comicCounter];
+                comicImage.src = characterObject.comics[comicCounter];
             }
         } // end getRandomComicCovers()
 
