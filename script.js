@@ -22,6 +22,10 @@ console.log('Start: getRandomComicCovers()');
             let randomNumber;
             let comicURL;
             let comics = [];
+
+            let randomComicsContainer = document.getElementById('character-random-comics-container');
+            let comicContainer;
+            let comicImage;
             
             for (let count = 0; count < 3; count++) {
 //console.log('Comic Image: ' + count);
@@ -38,29 +42,22 @@ console.log('Start: getRandomComicCovers()');
                             description: comicData.description != null ? comicData.description : 'No description available',
                             url:         convertToHTTPS(comicData.thumbnail.path + '.' + comicData.thumbnail.extension)
                         };
-console.log('comics:');
-console.log(comics);
-                        //return comics;
                     })
                     .catch( (error) => {
                         console.log('Fetch comic error:' + error);
                     });
             } // end for
+
 console.log('comics:');
 console.log(comics);
-            let randomComicsContainer = document.getElementById('character-random-comics-container');
-                        let comicCovers;
-                        let comicContainer;
-                        let comicImage;
-
-                        for (let comicCounter = 0; comicCounter < 3; comicCounter++) {
             
-                            console.log('comicCover:' + comicCounter);
-                            //comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
-                            //comicImage = comicContainer.getElementsByTagName('img');
-                //console.log('IMG-' + comicCounter + ':' + characterObject.comicCovers[comicCounter].url);
-                            //comicImage.src = characterObject.comics[comicCounter];
-                        }
+            for (let comicCounter = 0; comicCounter < 3; comicCounter++) {
+console.log('comicCover:' + comicCounter);
+                //comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
+                //comicImage = comicContainer.getElementsByTagName('img');
+console.log('IMG-' + comicCounter + ':' + comics[comicCounter].url);
+                //comicImage.src = characterObject.comics[comicCounter];
+            }
         } // end getRandomComicCovers()
 
     }
