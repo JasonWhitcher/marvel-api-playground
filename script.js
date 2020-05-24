@@ -56,7 +56,7 @@ console.log('comicCover:' + comicCounter);
                 comicContainer = document.getElementById(`comic-${comicCounter}`);
                 comicImage = comicContainer.getElementsByTagName('img');
 console.log('IMG-' + comicCounter + ':' + comics[comicCounter].url);
-                comicImage.src = characterObject.comics[comicCounter];
+                comicImage.src = comics[comicCounter].url;
             }
         } // end getRandomComicCovers()
 
