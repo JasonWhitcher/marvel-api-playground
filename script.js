@@ -23,7 +23,7 @@ console.log('Start: getRandomComicCovers()');
             let comicURL;
             let comics = [];
 
-            let randomComicsContainer = document.getElementById('character-random-comics-container');
+            //let randomComicsContainer = document.getElementById('character-random-comics-container');
             let comicContainer;
             let comicImage;
             
@@ -53,7 +53,7 @@ console.log(comics);
             
             for (let comicCounter = 0; comicCounter < 3; comicCounter++) {
 console.log('comicCover:' + comicCounter);
-                comicContainer = randomComicsContainer.getElementById(`comic-${comicCounter}`);
+                comicContainer = document.getElementById(`comic-${comicCounter}`);
                 comicImage = comicContainer.getElementsByTagName('img');
 console.log('IMG-' + comicCounter + ':' + comics[comicCounter].url);
                 comicImage.src = characterObject.comics[comicCounter];
