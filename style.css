@@ -5,6 +5,7 @@ body {
 }
 
 #character-information-container {
+  position: relative;
   border: 1px solid green;
 }
 

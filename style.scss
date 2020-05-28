@@ -4,6 +4,7 @@ body {
     max-height: 2000px;
 }
 #character-information-container {
+    position: relative;
     border: 1px solid green;
     #character-name-title {
         width: 49%;
