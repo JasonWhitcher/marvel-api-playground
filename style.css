@@ -54,12 +54,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-pack: right;
       -ms-flex-pack: right;
           justify-content: right;
-  width: 33%;
 }
 
 #character-random-comics-container .character-comic-cover-container .comic-image,
