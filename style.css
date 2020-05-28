@@ -57,6 +57,7 @@ body {
   -webkit-box-pack: right;
       -ms-flex-pack: right;
           justify-content: right;
+  width: 33%;
 }
 
 #character-random-comics-container .character-comic-cover-container .comic-image,
