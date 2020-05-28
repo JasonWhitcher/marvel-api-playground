@@ -3,42 +3,49 @@ body {
     max-width: 960px;
     max-height: 2000px;
 }
-#character-image-container {
-    width: 200px;
-    height: 200px;
-    #character-image {
-        width: inherit;
-        height: inherit;
-        object-fit: contain;
+#character-information-container {
+    border: 1px solid green;
+    #character-name-title {
+        width: 49%;
     }
-}
-#character-random-comic-container {
-    position: relative;;
-    #character-comic-covers-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: right;
-        .comic-container {
-            display: flex;
-            flex-direction: column;
-            margin: 2px 2px;
-            width: 33%;
-            min-width: 200px;
-            max-width: 450px;
-            img {
-                width: inherit;
-                object-fit: contain;
-            }
+    #character-description {
+        width: 49%;
+    }
+    #character-image-container {
+        float: right;
+        width: 200px;
+        height: 200px;
+        #character-image {
+            width: inherit;
+            height: inherit;
+            object-fit: contain;
         }
     }
-    #character-comic-description-container {
-        border: 2px solid green;
-        border-radius: 7px;
-        width: 600px;
-        position: relative;
-        top: 0px;
-        left: -600px;
+}
+
+#character-random-comics-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: right;
+    .character-comic-cover-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: right;
+        width: 33%;
+        .comic-image,
+        .comic-title,
+        .comic-description {
+            margin: 2px 2px;
+            width: inherit;
+            min-width: 200px;
+            max-width: 450px;
+        }
+        .comic-image {
+            object-fit: contain;
+        }
     }
 }
 @keyframes slide-in {

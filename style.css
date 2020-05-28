@@ -4,23 +4,33 @@ body {
   max-height: 2000px;
 }
 
-#character-image-container {
+#character-information-container {
+  border: 1px solid green;
+}
+
+#character-information-container #character-name-title {
+  width: 49%;
+}
+
+#character-information-container #character-description {
+  width: 49%;
+}
+
+#character-information-container #character-image-container {
+  float: right;
   width: 200px;
   height: 200px;
 }
 
-#character-image-container #character-image {
+#character-information-container #character-image-container #character-image {
   width: inherit;
   height: inherit;
   -o-object-fit: contain;
      object-fit: contain;
 }
 
-#character-random-comic-container {
+#character-random-comics-container {
   position: relative;
-}
-
-#character-random-comic-container #character-comic-covers-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,7 +45,7 @@ body {
           justify-content: right;
 }
 
-#character-random-comic-container #character-comic-covers-container .comic-container {
+#character-random-comics-container .character-comic-cover-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,25 +53,26 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 2px 2px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
   width: 33%;
+}
+
+#character-random-comics-container .character-comic-cover-container .comic-image,
+#character-random-comics-container .character-comic-cover-container .comic-title,
+#character-random-comics-container .character-comic-cover-container .comic-description {
+  margin: 2px 2px;
+  width: inherit;
   min-width: 200px;
   max-width: 450px;
 }
 
-#character-random-comic-container #character-comic-covers-container .comic-container img {
-  width: inherit;
+#character-random-comics-container .character-comic-cover-container .comic-image {
   -o-object-fit: contain;
      object-fit: contain;
-}
-
-#character-random-comic-container #character-comic-description-container {
-  border: 2px solid green;
-  border-radius: 7px;
-  width: 600px;
-  position: relative;
-  top: 0px;
-  left: -600px;
 }
 
 @-webkit-keyframes slide-in {
