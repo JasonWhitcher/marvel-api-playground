@@ -63,7 +63,7 @@ console.log(comics);
                 comicImage = comicContainer.querySelector('img');
 console.log('IMG-' + comicCounter + ':' + comics[comicCounter].url);
                 comicImage.src = comics[comicCounter].url;
-                //comicImage.alt = 'Image of random comic book cover.';
+                comicImage.alt = 'Image of random comic book cover.';
             }
         } // end getRandomComicCovers()
 
