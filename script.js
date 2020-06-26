@@ -5,7 +5,7 @@ window.onload = () => {
         constructor(characterObjectFromMarvel) {
             this.id = characterObjectFromMarvel.id;
             this.name = characterObjectFromMarvel.name;
-            this.description = characterObjectFromMarvel.description;
+            this.description = characterObjectFromMarvel.description != "" ? characterObjectFromMarvel.description : "No description available";
             this.characterImage = convertToHTTPS(characterObjectFromMarvel.thumbnail.path + '.' + characterObjectFromMarvel.thumbnail.extension); // url?
             //this.comicCovers = [];
             //this.comicCovers = this.getRandomComicCovers(characterObjectFromMarvel); // Array of arrays of comic information(title, description, image).

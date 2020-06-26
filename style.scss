@@ -42,11 +42,12 @@ body {
         .comic-title,
         .comic-description {
             margin: 2px 2px;
-            width: inherit;
+            //width: inherit;
             min-width: 200px;
             max-width: 450px;
         }
         .comic-image {
+            height: inherit;
             object-fit: contain;
         }
     }
