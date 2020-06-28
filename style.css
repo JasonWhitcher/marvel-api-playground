@@ -71,7 +71,6 @@ body {
 }
 
 #character-random-comics-container .character-comic-cover-container .comic-image {
-  height: inherit;
   -o-object-fit: contain;
      object-fit: contain;
 }
