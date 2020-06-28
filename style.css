@@ -59,7 +59,6 @@ body {
       -ms-flex-pack: right;
           justify-content: right;
   width: 33%;
-  max-height: 300px;
 }
 
 #character-random-comics-container .character-comic-cover-container .comic-image,
