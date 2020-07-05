@@ -70,31 +70,8 @@ body {
 }
 
 #character-random-comics-container .character-comic-cover-container .comic-image {
+  height: auto;
   -o-object-fit: contain;
      object-fit: contain;
-}
-
-@-webkit-keyframes slide-in {
-  0% {
-    left: 0px;
-  }
-  90% {
-    left: 500px;
-  }
-  100% {
-    left: 600px;
-  }
-}
-
-@keyframes slide-in {
-  0% {
-    left: 0px;
-  }
-  90% {
-    left: 500px;
-  }
-  100% {
-    left: 600px;
-  }
 }
 /*# sourceMappingURL=style.css.map */
