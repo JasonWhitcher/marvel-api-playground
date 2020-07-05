@@ -67,12 +67,11 @@ body {
 #character-random-comics-container .character-comic-cover-container .comic-title,
 #character-random-comics-container .character-comic-cover-container .comic-description {
   margin: 2px 2px;
-  width: auto;
   max-width: 450px;
 }
 
 #character-random-comics-container .character-comic-cover-container .comic-image {
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 /*# sourceMappingURL=style.css.map */
