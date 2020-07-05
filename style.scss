@@ -34,15 +34,15 @@ body {
     .character-comic-cover-container {
         display: flex;
         flex-direction: column;
-        //flex-wrap: wrap;
-        //justify-content: right;
+        flex-wrap: wrap;
+        justify-content: right;
         width: 33%;
         .comic-image,
         .comic-title,
         .comic-description {
             margin: 2px 2px;
-            min-width: 200px;
-            max-width: 450px;
+            //min-width: 200px;
+            //max-width: 450px;
         }
         .comic-image {
             object-fit: contain;
