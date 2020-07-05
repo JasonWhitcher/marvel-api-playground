@@ -67,7 +67,7 @@ body {
 #character-random-comics-container .character-comic-cover-container .comic-title,
 #character-random-comics-container .character-comic-cover-container .comic-description {
   margin: 2px 2px;
-  width: inherit;
+  width: auto;
   max-width: 450px;
 }
 
